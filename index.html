@@ -802,6 +802,37 @@
     transition: color 0.2s;
   }
   .footer-col a:hover { color: var(--accent-soft); }
+  .footer-addr {
+    font-family: var(--serif);
+    font-size: 13px;
+    line-height: 1.55;
+    color: rgba(245,241,232,0.55);
+    font-style: italic;
+  }
+  .mit-lockup {
+    display: inline-block;
+    margin-top: 26px;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  .mit-lockup:hover { opacity: 0.75; }
+  .mit-lockup img {
+    height: 56px;
+    width: auto;
+    display: block;
+  }
+  .mit-lockup-fallback {
+    display: none;
+    font-family: var(--serif);
+    font-size: 15px;
+    font-weight: 500;
+    color: rgba(245,241,232,0.85);
+    letter-spacing: 0.01em;
+    line-height: 1.25;
+    max-width: 260px;
+    border-top: 1px solid rgba(245,241,232,0.18);
+    padding-top: 14px;
+  }
   .footer-bottom {
     padding-top: 32px;
     display: flex;
@@ -1252,7 +1283,12 @@ code, hist, conv = <span class="fn">generate</span>(prompt, secret_key)</pre>
   <div class="ack-row">
     <a href="https://www.mit.edu/" class="ack-card" target="_blank" rel="noopener">
       <div class="ack-logo">
-        <img src="assets/logos/mit.svg" alt="MIT logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"/>
+        <!--
+          Replace with official MIT logo lock-up from:
+          https://brand.mit.edu/downloads?downloads_keywords=lockups
+          Use the three-line lock-up (above 50px) in black or MIT red.
+        -->
+        <img src="assets/logos/mit-lockup.svg" alt="MIT" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"/>
         <div class="ack-logo-fallback">MIT</div>
       </div>
       <div class="ack-name">Massachusetts Institute of Technology</div>
@@ -1299,6 +1335,19 @@ code, hist, conv = <span class="fn">generate</span>(prompt, secret_key)</pre>
         <p class="footer-tagline">
           AI-Guided Algorithm Discovery for Fast Linear Algebra.
         </p>
+
+        <!--
+          MIT LOCK-UP — required by MIT Brand Guide (brand.mit.edu/logos-marks/logo-lock-ups).
+          Replace src below with the official lock-up downloaded from:
+          https://brand.mit.edu/downloads?downloads_keywords=lockups
+          The three-line lock-up should be used above 50px tall on digital.
+          When over a dark background (this footer), use the WHITE variant.
+        -->
+        <a href="https://www.mit.edu/" class="mit-lockup" target="_blank" rel="noopener" aria-label="Massachusetts Institute of Technology">
+          <img src="assets/logos/mit-lockup-white.svg" alt="Massachusetts Institute of Technology"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"/>
+          <span class="mit-lockup-fallback">Massachusetts Institute of Technology</span>
+        </a>
       </div>
       <div class="footer-col">
         <h4>Project</h4>
@@ -1310,16 +1359,21 @@ code, hist, conv = <span class="fn">generate</span>(prompt, secret_key)</pre>
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Connect</h4>
+        <h4>Contact</h4>
         <ul>
-          <li><a href="mailto:eljn@mit.edu">eljn@mit.edu</a></li>
+          <li><a href="mailto:smartsolveai@mit.edu">smartsolveai@mit.edu</a></li>
+          <li class="footer-addr">77 Massachusetts Ave.<br>Cambridge, MA 02139</li>
+        </ul>
+        <h4 style="margin-top:28px">Resources</h4>
+        <ul>
           <li><a href="https://github.com/JuliaLabs/SmartSolve" target="_blank" rel="noopener">GitHub ↗</a></li>
           <li><a href="https://julia.mit.edu/" target="_blank" rel="noopener">Julia Lab ↗</a></li>
+          <li><a href="https://accessibility.mit.edu/captioning/mit-nad-agreement/" target="_blank" rel="noopener">Accessibility</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <div>© 2024–2026 · MIT SmartSolve · Massachusetts Institute of Technology</div>
+      <div>© 2024–2026 · Massachusetts Institute of Technology</div>
       <div>Cambridge, MA · 02139</div>
     </div>
   </div>
