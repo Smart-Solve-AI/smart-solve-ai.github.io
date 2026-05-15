@@ -12,15 +12,15 @@
 <style>
   :root {
     --ink: #0a0a0a;
-    --ink-soft: #2a2a28;
-    --paper: #f5f1e8;
-    --paper-warm: #ede6d3;
-    --paper-bright: #faf7ee;
+    --ink-soft: #1f242b;
+    --paper: #eef0f2;
+    --paper-warm: #e3e7ec;
+    --paper-bright: #f7f8fa;
     --accent: #8a0d1f;
     --accent-soft: #b13a4a;
-    --rule: #c9bfa6;
-    --muted: #6b6452;
-    --highlight: #e8dcb8;
+    --rule: #c4ccd4;
+    --muted: #5c6773;
+    --highlight: #dfe5ec;
     --serif: 'Fraunces', 'Times New Roman', serif;
     --sans: 'Inter Tight', system-ui, sans-serif;
     --mono: 'JetBrains Mono', 'Courier New', monospace;
@@ -49,7 +49,7 @@
     position: sticky;
     top: 0;
     z-index: 100;
-    background: rgba(245, 241, 232, 0.92);
+    background: rgba(238, 240, 242, 0.92);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--rule);
@@ -760,7 +760,7 @@
     grid-template-columns: 2fr 1fr 1fr;
     gap: 60px;
     padding-bottom: 60px;
-    border-bottom: 1px solid rgba(245,241,232,0.15);
+    border-bottom: 1px solid rgba(238,240,242,0.15);
   }
   .footer-mark {
     width: 40px;
@@ -783,7 +783,7 @@
     font-family: var(--serif);
     font-size: 17px;
     line-height: 1.55;
-    color: rgba(245,241,232,0.75);
+    color: rgba(238,240,242,0.75);
     max-width: 38ch;
   }
   .footer-col h4 {
@@ -799,7 +799,7 @@
   }
   .footer-col li { margin-bottom: 10px; }
   .footer-col a {
-    color: rgba(245,241,232,0.85);
+    color: rgba(238,240,242,0.85);
     text-decoration: none;
     font-family: var(--sans);
     font-size: 14px;
@@ -810,7 +810,7 @@
     font-family: var(--serif);
     font-size: 13px;
     line-height: 1.55;
-    color: rgba(245,241,232,0.55);
+    color: rgba(238,240,242,0.55);
     font-style: italic;
   }
   .mit-lockup {
@@ -830,11 +830,11 @@
     font-family: var(--serif);
     font-size: 15px;
     font-weight: 500;
-    color: rgba(245,241,232,0.85);
+    color: rgba(238,240,242,0.85);
     letter-spacing: 0.01em;
     line-height: 1.25;
     max-width: 260px;
-    border-top: 1px solid rgba(245,241,232,0.18);
+    border-top: 1px solid rgba(238,240,242,0.18);
     padding-top: 14px;
   }
   .footer-bottom {
@@ -845,11 +845,11 @@
     font-family: var(--mono);
     font-size: 11px;
     letter-spacing: 0.1em;
-    color: rgba(245,241,232,0.5);
+    color: rgba(238,240,242,0.5);
     text-transform: uppercase;
   }
   .footer-bottom a {
-    color: rgba(245,241,232,0.7);
+    color: rgba(238,240,242,0.7);
     text-decoration: none;
   }
   .footer-bottom a:hover { color: var(--accent-soft); }
@@ -957,7 +957,7 @@
     </div>
     <div class="hero-side">
       <p class="hero-lede">
-        <strong>Numerical linear algebra</strong> is the computational foundation of nearly all modern scientific computing and AI, shaping performance from large-scale multiphysics simulations to the training and inference of today's largest AI models. Yet its design space — including algorithm classes, mixed-precision strategies, sparsity structures, memory layouts, hardware backends, and task scheduling — is far too large for any human team to explore comprehensively. <strong>SmartSolveAI</strong> investigates whether multi-agent AI can systematically search this space and discover specialized, high-performance algorithms that outperform today's hand-tuned systems.
+        <strong>Numerical linear algebra</strong> is the computational foundation of nearly all modern scientific computing and AI, shaping performance from large-scale multiphysics simulations to the training and inference of today's largest AI models. Yet its design space — including algorithm classes, mixed-precision strategies, sparsity structures, memory layouts, hardware backends, and task scheduling — is far too large for any human team to explore comprehensively. <strong>SmartSolveAI</strong> investigates how multi-agent AI can help navigate this high-dimensional design space to discover specialized, high-performance algorithms that outperform today's hand-tuned systems.
       </p>
       <div class="hero-banner-note">
         <span class="pulse"></span>
@@ -976,7 +976,7 @@
       <h2 class="section-title">From <em>benchmark</em> to <em>algorithms</em>.</h2>
     </div>
     <p class="section-lede">
-      SmartSolveAI's methodology begins by benchmarking choices across the linear-algebra design space — including algorithm classes, mixed-precision strategies, sparsity structures, memory layouts, and hardware backends. It then uses the best-performing choices — evaluated by metrics such as accuracy, runtime, and memory usage — as input to an AI-assisted process that generates (1) <strong>selection heuristics</strong> to dispatch the optimal configuration for a given input, such as a specific preconditioner–solver pair, and (2) <strong>structure-aware algorithms</strong> that produce variants of state-of-the-art solvers by leveraging the input matrix's pattern.
+      SmartSolveAI's methodology begins by benchmarking choices across the linear-algebra design space — including algorithm classes, mixed-precision strategies, sparsity structures, memory layouts, and hardware backends. It then uses the best-performing choices — evaluated by metrics such as accuracy, runtime, and memory usage — as input to an AI-assisted process that generates (1) <strong>selection heuristics</strong> to dispatch the optimal configuration for a given input, such as a specific preconditioner–solver pair, and (2) <strong>specialized variants of state-of-the-art solvers</strong> by leveraging information such as the input matrix's pattern and the target hardware.
     </p>
   </div>
 
@@ -995,7 +995,7 @@
 
       <!-- INPUT -->
       <g class="node node-input">
-        <rect x="20" y="220" width="160" height="80" rx="2" fill="#faf7ee" stroke="#0a0a0a" stroke-width="1.5"/>
+        <rect x="20" y="220" width="160" height="80" rx="2" fill="#f7f8fa" stroke="#0a0a0a" stroke-width="1.5"/>
         <text x="100" y="252" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="2" fill="#8a0d1f">INPUT</text>
         <text x="100" y="278" text-anchor="middle" font-family="Fraunces, serif" font-size="17" font-weight="500" fill="#0a0a0a">Matrix A</text>
       </g>
@@ -1005,11 +1005,11 @@
 
       <!-- STAGE 01: BENCHMARK -->
       <g class="node">
-        <rect x="240" y="200" width="240" height="120" rx="2" fill="#faf7ee" stroke="#0a0a0a" stroke-width="1.5"/>
+        <rect x="240" y="200" width="240" height="120" rx="2" fill="#f7f8fa" stroke="#0a0a0a" stroke-width="1.5"/>
         <text x="260" y="226" font-family="JetBrains Mono, monospace" font-size="11" letter-spacing="2" fill="#8a0d1f">01 · BENCHMARK</text>
         <text x="260" y="256" font-family="Fraunces, serif" font-size="18" font-weight="500" fill="#0a0a0a">Sampling the</text>
         <text x="260" y="278" font-family="Fraunces, serif" font-size="18" font-weight="500" font-style="italic" fill="#0a0a0a">design space</text>
-        <text x="260" y="302" font-family="Inter Tight, sans-serif" font-size="12" fill="#6b6452">algorithms · precision · sparsity · HW</text>
+        <text x="260" y="302" font-family="Inter Tight, sans-serif" font-size="12" fill="#5c6773">algorithms · precision · sparsity · HW</text>
       </g>
 
       <!-- Arrow to stage 02 -->
@@ -1017,11 +1017,11 @@
 
       <!-- STAGE 02: DATABASE / BEST-PERFORMING -->
       <g class="node">
-        <rect x="540" y="200" width="240" height="120" rx="2" fill="#faf7ee" stroke="#0a0a0a" stroke-width="1.5"/>
+        <rect x="540" y="200" width="240" height="120" rx="2" fill="#f7f8fa" stroke="#0a0a0a" stroke-width="1.5"/>
         <text x="560" y="226" font-family="JetBrains Mono, monospace" font-size="11" letter-spacing="2" fill="#8a0d1f">02 · DATABASE</text>
         <text x="560" y="256" font-family="Fraunces, serif" font-size="18" font-weight="500" fill="#0a0a0a">Best-performing</text>
         <text x="560" y="278" font-family="Fraunces, serif" font-size="18" font-weight="500" font-style="italic" fill="#0a0a0a">choices</text>
-        <text x="560" y="302" font-family="Inter Tight, sans-serif" font-size="12" fill="#6b6452">accuracy · runtime · memory</text>
+        <text x="560" y="302" font-family="Inter Tight, sans-serif" font-size="12" fill="#5c6773">accuracy · runtime · memory</text>
       </g>
 
       <!-- FORK -->
@@ -1037,27 +1037,27 @@
       <g class="node node-out">
         <rect x="880" y="70" width="300" height="120" rx="2" fill="#0a0a0a" stroke="#0a0a0a" stroke-width="1.5"/>
         <text x="900" y="96" font-family="JetBrains Mono, monospace" font-size="11" letter-spacing="2" fill="#b13a4a">03A · AI-ASSISTED</text>
-        <text x="900" y="126" font-family="Fraunces, serif" font-size="20" font-weight="500" fill="#f5f1e8">Selection</text>
-        <text x="900" y="150" font-family="Fraunces, serif" font-size="20" font-weight="500" font-style="italic" fill="#f5f1e8">heuristics</text>
-        <text x="900" y="174" font-family="Inter Tight, sans-serif" font-size="12" fill="rgba(245,241,232,0.65)">e.g. optimal preconditioner–solver pair</text>
+        <text x="900" y="126" font-family="Fraunces, serif" font-size="20" font-weight="500" fill="#eef0f2">Selection</text>
+        <text x="900" y="150" font-family="Fraunces, serif" font-size="20" font-weight="500" font-style="italic" fill="#eef0f2">heuristics</text>
+        <text x="900" y="174" font-family="Inter Tight, sans-serif" font-size="12" fill="rgba(238,240,242,0.65)">e.g. optimal preconditioner–solver pair</text>
       </g>
 
-      <!-- BRANCH B: STRUCTURE-AWARE -->
+      <!-- BRANCH B: SPECIALIZED VARIANTS -->
       <g class="node node-out">
         <rect x="880" y="330" width="300" height="120" rx="2" fill="#0a0a0a" stroke="#0a0a0a" stroke-width="1.5"/>
         <text x="900" y="356" font-family="JetBrains Mono, monospace" font-size="11" letter-spacing="2" fill="#b13a4a">03B · AI-ASSISTED</text>
-        <text x="900" y="386" font-family="Fraunces, serif" font-size="20" font-weight="500" fill="#f5f1e8">Structure-aware</text>
-        <text x="900" y="410" font-family="Fraunces, serif" font-size="20" font-weight="500" font-style="italic" fill="#f5f1e8">algorithms</text>
-        <text x="900" y="434" font-family="Inter Tight, sans-serif" font-size="12" fill="rgba(245,241,232,0.65)">variants of state-of-the-art solvers</text>
+        <text x="900" y="386" font-family="Fraunces, serif" font-size="20" font-weight="500" fill="#eef0f2">Specialized</text>
+        <text x="900" y="410" font-family="Fraunces, serif" font-size="20" font-weight="500" font-style="italic" fill="#eef0f2">variants</text>
+        <text x="900" y="434" font-family="Inter Tight, sans-serif" font-size="12" fill="rgba(238,240,242,0.65)">leveraging matrix pattern &amp; target hardware</text>
       </g>
 
       <!-- shared-stage dotted underline -->
-      <line x1="240" y1="345" x2="780" y2="345" stroke="#c9bfa6" stroke-width="1" stroke-dasharray="3 4"/>
-      <text x="510" y="370" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="2" fill="#6b6452">SMART DISCOVERY</text>
+      <line x1="240" y1="345" x2="780" y2="345" stroke="#c4ccd4" stroke-width="1" stroke-dasharray="3 4"/>
+      <text x="510" y="370" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="2" fill="#5c6773">SMART DISCOVERY</text>
 
       <!-- divergence label -->
-      <line x1="880" y1="50" x2="1180" y2="50" stroke="#c9bfa6" stroke-width="1" stroke-dasharray="3 4"/>
-      <text x="1030" y="42" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="2" fill="#6b6452">NEW LINEAR ALGEBRA</text>
+      <line x1="880" y1="50" x2="1180" y2="50" stroke="#c4ccd4" stroke-width="1" stroke-dasharray="3 4"/>
+      <text x="1030" y="42" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="2" fill="#5c6773">NEW LINEAR ALGEBRA</text>
     </svg>
   </div>
 </section>
@@ -1070,7 +1070,7 @@
       <h2 class="section-title">Selected <em>research</em> output.</h2>
     </div>
     <p class="section-lede">
-      Recent peer-reviewed contributions advancing dynamic algorithmic dispatch, structure-aware linear algebra, and data-dependency-aware scheduling in Julia.
+      Recent contributions advancing dynamic algorithmic dispatch, structure-aware linear algebra, and data-dependency-aware scheduling in Julia.
     </p>
   </div>
 
@@ -1145,7 +1145,7 @@
       <h2 class="section-title">Presentations &amp; <em>keynotes</em>.</h2>
     </div>
     <p class="section-lede">
-      The SmartSolveAI team has presented its work at leading venues in numerical linear algebra, high-performance computing, and scientific computing more broadly.
+      A selection of recent talks and presentations by members of the SmartSolveAI team.
     </p>
   </div>
 
@@ -1323,7 +1323,7 @@ code, hist, conv = <span class="fn">generate</span>(prompt, secret_key)</pre>
     <div class="footer-top">
       <div>
         <svg class="footer-mark" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <g stroke="#f5f1e8" stroke-width="1.6" fill="none">
+          <g stroke="#eef0f2" stroke-width="1.6" fill="none">
             <rect x="4"  y="4"  width="18" height="18"/>
             <rect x="26" y="4"  width="18" height="18"/>
             <rect x="48" y="4"  width="18" height="18"/>
