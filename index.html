@@ -1637,10 +1637,13 @@ code, hist, conv = <span class="fn">generate</span>(prompt, secret_key)</pre>
 
       <div class="software-info">
         <p>
-          A direct implementation of <em>selection heuristic generation</em>: given a sparse linear system, NeuralLinearSolve.jl predicts the fastest solver from a learned model. A convolutional network operates on the spy plot of the input matrix and emits a probability distribution over candidate solvers. The benchmarking infrastructure behind SmartDiscovery — and the database of optimal choices it produces — provides the training data that makes this learned heuristic possible.
+          NeuralLinearSolve.jl is a direct implementation of learned selection heuristics for sparse linear systems. Given an input matrix, a convolutional neural network analyzes its spy plot and predicts a probability distribution over candidate solvers, enabling selection of the solver expected to be fastest.
         </p>
         <p>
-          Trained on roughly 1,000 matrices from the SuiteSparse collection, the model reaches around 94% top-1 accuracy on a held-out test set. Pre-trained weights ship with the package; at call time, the cost reduces to a single forward pass. Released as part of the <a href="https://sciml.ai/" target="_blank" rel="noopener" class="inline-link">SciML</a> ecosystem.
+          The current version is trained on roughly 1,000 matrices from the SuiteSparse Matrix Collection and achieves around 94% top-1 accuracy on a held-out test set. For <a href="https://chefsi.mit.edu/" target="_blank" rel="noopener" class="inline-link">CHEFSI</a> finite-element simulations, the benchmarking infrastructure behind SmartDiscovery for <a href="https://petsc.org/" target="_blank" rel="noopener" class="inline-link">PETSc</a>, and the database of optimal choices it generates, provide the training data needed to build a domain-specific learned heuristic.
+        </p>
+        <p>
+          Released as part of the <a href="https://sciml.ai/" target="_blank" rel="noopener" class="inline-link">SciML</a> ecosystem.
         </p>
         <div class="software-actions">
           <a href="https://github.com/SciML/NeuralLinearSolve.jl" class="btn btn-primary" target="_blank" rel="noopener">
