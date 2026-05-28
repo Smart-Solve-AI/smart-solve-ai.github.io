@@ -442,6 +442,49 @@
     letter-spacing: 0.1em;
     color: var(--muted);
   }
+  .pub-actions-col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 12px;
+    align-self: center;
+  }
+  .pub-bib {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--muted);
+    background: none;
+    border: none;
+    border-bottom: 1px dashed var(--muted);
+    padding-bottom: 2px;
+    cursor: pointer;
+    transition: color 0.2s, border-color 0.2s;
+    white-space: nowrap;
+  }
+  .pub-bib:hover { color: var(--accent); border-color: var(--accent); border-bottom-style: solid; }
+  .pub-bib-all-bar {
+    display: flex;
+    justify-content: flex-end;
+    padding: 14px 0;
+    border-bottom: 2px solid var(--ink);
+    margin-bottom: 0;
+  }
+  .pub-bib-all {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--muted);
+    background: none;
+    border: none;
+    border-bottom: 1px dashed var(--muted);
+    padding-bottom: 2px;
+    cursor: pointer;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .pub-bib-all:hover { color: var(--accent); border-color: var(--accent); border-bottom-style: solid; }
 
   /* ------------- TALKS ------------- */
   .talks {
@@ -1164,6 +1207,10 @@
     </p>
   </div>
 
+  <div class="pub-bib-all-bar">
+    <button class="pub-bib-all" onclick="downloadAllBib()">Download all BibTeX ↓</button>
+  </div>
+
   <div class="pubs-list">
     <article class="pub">
       <div class="pub-year">In Prep.</div>
@@ -1182,7 +1229,10 @@
         <div class="pub-authors">Emmanuel Lujan, Felipe Tomé, Rabab Alomairy, Julian Samaroo, Daniel Pickard, Evelyne Ringoot, Yaman Otuzbir, Artemis Pados, Victoria Carrica, Ngoc Cuong Nguyen, Raul Radovitzky, Alan Edelman</div>
         <div class="pub-venue">Poster presented at the <a href="https://chefsi.mit.edu/" target="_blank" rel="noopener">MIT Center for the Exascale Simulation of Coupled High Enthalpy Fluid-Solid Interactions</a> (CHEFSI) TST Meeting, April 2026</div>
       </div>
-      <a href="#" class="pub-link pub-link-pending" target="_blank" rel="noopener">View →</a>
+      <div class="pub-actions-col">
+        <a href="https://dspace.mit.edu/handle/1721.1/166195" class="pub-link" target="_blank" rel="noopener">View →</a>
+        <button class="pub-bib" onclick="downloadBib('lujan2026accelerating')">BibTeX ↓</button>
+      </div>
     </article>
 
     <article class="pub">
@@ -1192,7 +1242,10 @@
         <div class="pub-authors">Artemis Pados, Christopher Rackauckas, Alan Edelman, Emmanuel Lujan, Daniel Pickard, Felipe Tomé</div>
         <div class="pub-venue">Poster presented at the <a href="https://chefsi.mit.edu/" target="_blank" rel="noopener">MIT Center for the Exascale Simulation of Coupled High Enthalpy Fluid-Solid Interactions</a> (CHEFSI) TST Meeting, April 2026</div>
       </div>
-      <a href="#" class="pub-link pub-link-pending" target="_blank" rel="noopener">View →</a>
+      <div class="pub-actions-col">
+        <a href="https://dspace.mit.edu/handle/1721.1/166196" class="pub-link" target="_blank" rel="noopener">View →</a>
+        <button class="pub-bib" onclick="downloadBib('pados2026neural')">BibTeX ↓</button>
+      </div>
     </article>
 
     <article class="pub">
@@ -1202,7 +1255,10 @@
         <div class="pub-authors">Rushil Shah, Emmanuel Lujan, Rabab Alomairy, Alan Edelman</div>
         <div class="pub-venue">IEEE High Performance Extreme Computing Conference (HPEC), 2025</div>
       </div>
-      <a href="https://ieee-hpec.org/wp-content/uploads/2026/01/120.pdf" class="pub-link" target="_blank" rel="noopener">View →</a>
+      <div class="pub-actions-col">
+        <a href="https://ieee-hpec.org/wp-content/uploads/2026/01/120.pdf" class="pub-link" target="_blank" rel="noopener">View →</a>
+        <button class="pub-bib" onclick="downloadBib('shah2025data')">BibTeX ↓</button>
+      </div>
     </article>
 
     <article class="pub">
@@ -1212,7 +1268,10 @@
         <div class="pub-authors">Emmanuel Lujan, Alan Edelman</div>
         <div class="pub-venue">IEEE High Performance Extreme Computing Conference (HPEC), 2025</div>
       </div>
-      <a href="https://ieeexplore.ieee.org/abstract/document/11196484/" class="pub-link" target="_blank" rel="noopener">View →</a>
+      <div class="pub-actions-col">
+        <a href="https://ieeexplore.ieee.org/abstract/document/11196484/" class="pub-link" target="_blank" rel="noopener">View →</a>
+        <button class="pub-bib" onclick="downloadBib('lujan2025structure')">BibTeX ↓</button>
+      </div>
     </article>
 
     <article class="pub">
@@ -1222,7 +1281,10 @@
         <div class="pub-authors">Rabab Alomairy, Felipe Tome, Julian Samaroo, Alan Edelman</div>
         <div class="pub-venue">IEEE High Performance Extreme Computing Conference (HPEC), 2024</div>
       </div>
-      <a href="https://ieeexplore.ieee.org/document/10938467" class="pub-link" target="_blank" rel="noopener">View →</a>
+      <div class="pub-actions-col">
+        <a href="https://ieeexplore.ieee.org/document/10938467" class="pub-link" target="_blank" rel="noopener">View →</a>
+        <button class="pub-bib" onclick="downloadBib('alomairy2024dynamic')">BibTeX ↓</button>
+      </div>
     </article>
   </div>
 </section>
@@ -1787,6 +1849,71 @@ code, hist, conv = <span class="fn">generate</span>(prompt, secret_key)</pre>
 </footer>
 
 <script>
+  // BibTeX
+  const bibtex = {
+    lujan2026accelerating: `@misc{lujan2026accelerating,
+  title  = {Accelerating Linear Solves in Finite Element Simulations with Julia \\& AI},
+  author = {Lujan, Emmanuel and Tom{\\'{e}}, Felipe and Alomairy, Rabab and Samaroo, Julian and Pickard, Daniel and Rulko, Theo and Ringoot, Evelyne and Otuzbir, Yaman and Pados, Artemis and Carrica, Victoria and Nguyen, Ngoc and Radovitzky, Raul and Edelman, Alan},
+  school = {MIT Center for Exascale Simulation of Coupled High-Enthalpy Fluid--Solid Interactions (CHEFSI) TST Meeting},
+  year   = {2026},
+  month  = apr,
+  url    = {https://dspace.mit.edu/handle/1721.1/166195}
+}`,
+    pados2026neural: `@misc{pados2026neural,
+  title  = {Neural Sparse Linear Solver Selection},
+  author = {Pados, Artemis and Rackauckas, Christopher and Edelman, Alan and Lujan, Emmanuel and Pickard, Daniel and Tom{\\'{e}}, Felipe},
+  school = {MIT Center for Exascale Simulation of Coupled High-Enthalpy Fluid--Solid Interactions (CHEFSI) TST Meeting},
+  year   = {2026},
+  month  = apr,
+  url    = {https://dspace.mit.edu/handle/1721.1/166196}
+}`,
+    shah2025data: `@inproceedings{shah2025data,
+  title     = {Data-Driven Dynamic Algorithm Dispatch with Large Language Models},
+  author    = {Shah, Rushil and Lujan, Emmanuel and Alomairy, Rabab and Edelman, Alan},
+  booktitle = {IEEE High Performance Extreme Computing Conference (HPEC)},
+  year      = {2025},
+  note      = {Outstanding Short Paper Award}
+}`,
+    lujan2025structure: `@inproceedings{lujan2025structure,
+  title     = {When Structure is Silent: Opportunities for Algorithmic Dispatch in Linear Algebra},
+  author    = {Lujan, Emmanuel and Edelman, Alan},
+  booktitle = {IEEE High Performance Extreme Computing Conference (HPEC)},
+  year      = {2025}
+}`,
+    alomairy2024dynamic: `@inproceedings{alomairy2024dynamic,
+  title     = {Dynamic Task Scheduling with Data Dependency Awareness Using Julia},
+  author    = {Alomairy, Rabab and Tome, Felipe and Samaroo, Julian and Edelman, Alan},
+  booktitle = {IEEE High Performance Extreme Computing Conference (HPEC)},
+  year      = {2024},
+  doi       = {10.1109/HPEC62836.2024.10938467}
+}`
+  };
+
+  function downloadBib(key) {
+    const blob = new Blob([bibtex[key]], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = key + '.bib';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
+
+  function downloadAllBib() {
+    const all = Object.values(bibtex).join('\n\n');
+    const blob = new Blob([all], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'smartsolve.bib';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
+
   // Subtle scroll-reveal
   const io = new IntersectionObserver((entries) => {
     entries.forEach(e => {
