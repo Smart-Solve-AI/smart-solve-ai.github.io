@@ -1030,6 +1030,9 @@
     transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
   }
   .reveal.in { opacity: 1; transform: translateY(0); }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+  }
 </style>
 </head>
 <body>
@@ -1424,45 +1427,6 @@
           Lujan, E., Shah, R., Alomairy, R., &amp; Edelman, A. (2025).<br>
           <em>SmartSolve.jl: AI for Algorithmic Discovery</em>, v0.1.0-alpha. Zenodo.<br>
           doi:10.5281/zenodo.15784217
-        </div>
-      </div>
-    </div>
-
-    <!-- Bottom row: Install (left) + Run (right) -->
-    <div class="code-row">
-      <div class="poc-block">
-        <div class="poc-label">Install</div>
-        <div class="code-window">
-          <div class="code-header">
-            <span class="code-dot r"></span>
-            <span class="code-dot y"></span>
-            <span class="code-dot g"></span>
-            <span class="code-filename">repl · pkg mode</span>
-          </div>
-          <pre class="code-body"><span class="prompt">]</span>add https://github.com/Smart-Solve-AI/SmartSolve.jl</pre>
-        </div>
-      </div>
-
-      <div class="poc-block">
-        <div class="poc-label">Run</div>
-        <div class="code-window">
-          <div class="code-header">
-            <span class="code-dot r"></span>
-            <span class="code-dot y"></span>
-            <span class="code-dot g"></span>
-            <span class="code-filename">smartsolve_demo.jl</span>
-          </div>
-          <pre class="code-body"><span class="kw">using</span> SmartSolve
-
-prompt = <span class="str">"""
-Generate a high performance implementation of LU
-with iterative refinement using the following reference:
-https://nhigham.com/2023/03/13/what-is-iterative-refinement
-"""</span>
-
-secret_key = <span class="fn">ENV</span>[<span class="str">"OPENAI_API_KEY"</span>]
-
-code, hist, conv = <span class="fn">generate</span>(prompt, secret_key)</pre>
         </div>
       </div>
     </div>
@@ -1932,7 +1896,7 @@ code, hist, conv = <span class="fn">generate</span>(prompt, secret_key)</pre>
     });
   }, { threshold: 0.12 });
 
-  document.querySelectorAll('.pipeline, .pub, .talk-card, .ack-card, .product-block')
+  document.querySelectorAll('.section-head, .pipeline, .pub, .talk-card, .ack-card, .product-block')
     .forEach(el => { el.classList.add('reveal'); io.observe(el); });
 </script>
 
