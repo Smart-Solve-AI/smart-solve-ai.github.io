@@ -1026,12 +1026,13 @@
   /* Reveal animation */
   .reveal {
     opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    transform: translateY(44px);
+    transition: opacity 0.7s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
   }
   .reveal.in { opacity: 1; transform: translateY(0); }
   @media (prefers-reduced-motion: reduce) {
-    .reveal { opacity: 1; transform: none; transition: none; }
+    /* Keep a gentle fade but drop the movement for reduced-motion users */
+    .reveal { transform: none; transition: opacity 0.8s ease; }
   }
 </style>
 </head>
@@ -1894,10 +1895,19 @@
         io.unobserve(e.target);
       }
     });
-  }, { threshold: 0.12 });
+  }, { threshold: 0, rootMargin: '0px 0px -18% 0px' });
 
   document.querySelectorAll('.section-head, .pipeline, .pub, .talk-card, .ack-card, .product-block')
-    .forEach(el => { el.classList.add('reveal'); io.observe(el); });
+    .forEach(el => {
+      el.classList.add('reveal');
+      // Reveal whatever is already on the first screen so there's no blank gap on load;
+      // observe the rest so they animate in as they're scrolled into view.
+      if (el.getBoundingClientRect().top < window.innerHeight) {
+        requestAnimationFrame(() => el.classList.add('in'));
+      } else {
+        io.observe(el);
+      }
+    });
 </script>
 
 </body>
