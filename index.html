@@ -13,6 +13,21 @@
 </script>
 <title>SmartSolveAI — AI-Guided Algorithm Discovery for Fast Linear Algebra | MIT</title>
 <meta name="description" content="The MIT SmartSolveAI project advances AI-guided algorithmic discovery and accelerates computations through improved strategies for algorithm and architecture selection in computational linear algebra." />
+<link rel="canonical" href="https://smartsolveai.mit.edu/" />
+<!-- Link previews (Slack, iMessage, LinkedIn, Discord, X, …). Plain meta tags — no account or service involved.
+     Card image regenerated from assets/social/og-card.src.html:
+     google-chrome --headless --window-size=1200,630 --screenshot=assets/social/og-card.png <url> -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="SmartSolveAI" />
+<meta property="og:url" content="https://smartsolveai.mit.edu/" />
+<meta property="og:title" content="SmartSolveAI — AI-Guided Algorithm Discovery for Fast Linear Algebra" />
+<meta property="og:description" content="An MIT project on AI-guided algorithmic discovery for computational linear algebra: multi-agent systems that generate specialized, high-performance solvers." />
+<meta property="og:image" content="https://smartsolveai.mit.edu/assets/social/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="SmartSolveAI — AI-Guided Algorithm Discovery for Fast Linear Algebra. MIT CSAIL." />
+<meta name="twitter:card" content="summary_large_image" />
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'><g stroke='%230a0a0a' stroke-width='3' fill='none'><rect x='4' y='4' width='18' height='18'/><rect x='26' y='4' width='18' height='18'/><rect x='48' y='4' width='18' height='18'/><rect x='4' y='26' width='18' height='18'/><rect x='48' y='26' width='18' height='18'/><rect x='4' y='48' width='18' height='18'/><rect x='26' y='48' width='18' height='18'/><rect x='48' y='48' width='18' height='18'/></g><rect x='26' y='26' width='18' height='18' fill='%238a0d1f'/></svg>" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1270,6 +1285,98 @@
     .stage img { transition: none; }
   }
 
+
+  /* ------------- TEAM ROSTER ------------- */
+  .team-group { margin-top: 52px; }
+  .team-group:first-of-type { margin-top: 8px; }
+  .team-group-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 30px;
+  }
+  .team-group-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+  }
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 34px 24px;
+  }
+  .person {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+  .person-photo {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    overflow: hidden;
+    background: var(--paper-bright);
+    border: 1px solid var(--rule);
+    display: grid;
+    place-items: center;
+    /* portraits come from a dozen different cameras and backdrops — desaturating
+       them holds the row together; colour returns on hover */
+    filter: grayscale(1) contrast(1.02);
+    transition: filter 0.45s ease, border-color 0.3s ease;
+  }
+  .person-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  a.person:hover .person-photo {
+    filter: grayscale(0);
+    border-color: var(--accent);
+  }
+  .person-mono {
+    font-family: var(--serif);
+    font-size: 30px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: var(--muted);
+  }
+  .person-name {
+    font-family: var(--serif);
+    font-size: 15.5px;
+    font-weight: 500;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    margin-top: 14px;
+  }
+  a.person:hover .person-name { color: var(--accent); }
+  .person-role {
+    font-family: var(--sans);
+    font-size: 12.5px;
+    line-height: 1.4;
+    color: var(--muted);
+    margin-top: 3px;
+  }
+  .person-affil {
+    font-family: var(--sans);
+    font-size: 12px;
+    line-height: 1.4;
+    color: var(--muted);
+    opacity: 0.8;
+    margin-top: 2px;
+  }
+  @media (max-width: 960px) {
+    .team-grid { grid-template-columns: repeat(auto-fill, minmax(112px, 1fr)); gap: 26px 18px; }
+    .team-group { margin-top: 40px; }
+    .person-name { font-size: 14.5px; }
+  }
+
   /* ------------- RESPONSIVE ------------- */
   @media (max-width: 960px) {
     .topbar-inner { padding: 14px 24px; }
@@ -1710,7 +1817,7 @@
       <div class="pub-year">2024</div>
       <div class="pub-content">
         <h3 class="pub-title"><em>Dynamic Task Scheduling with Data Dependency Awareness Using Julia</em></h3>
-        <div class="pub-authors">Rabab Alomairy, Felipe Tome, Julian Samaroo, Alan Edelman</div>
+        <div class="pub-authors">Rabab Alomairy, Felipe Tom&eacute;, Julian Samaroo, Alan Edelman</div>
         <div class="pub-venue">IEEE High Performance Extreme Computing Conference (HPEC), 2024</div>
       </div>
       <div class="pub-actions-col">
@@ -1752,7 +1859,7 @@
       </div>
     </a>
 
-    <a href="https://wamta25.github.io/keynote" class="talk-card" target="_blank" rel="noopener">
+    <a href="https://web.archive.org/web/20260418031738/https://wamta25.github.io/keynote" class="talk-card" target="_blank" rel="noopener">
       <div class="talk-venue">WAMTA · 2025 · Keynote</div>
       <h3 class="talk-title">Improving the HPC Experience: Did Julia Get It Right, or Will AI Hide the Problem (or Both)?</h3>
       <div class="talk-meta">
@@ -2129,6 +2236,91 @@
       </a>,
       a research group working at the intersection of numerical computing, programming languages, applied mathematics, and scientific machine learning.
     </p>
+  </div>
+
+  <div class="team-group">
+    <div class="team-group-label">Team</div>
+    <div class="team-grid">
+      <a class="person" href="http://www-math.mit.edu/~edelman" target="_blank" rel="noopener">
+        <div class="person-photo"><img src="assets/team/alan-edelman.webp" loading="lazy" width="320" height="320"
+           alt="Alan Edelman"></div>
+        <div class="person-name">Alan Edelman</div>
+        <div class="person-role">Professor</div>
+      </a>
+      <a class="person" href="https://www.mit.edu/~eljn" target="_blank" rel="noopener">
+        <div class="person-photo"><img src="assets/team/emmanuel-lujan.webp" loading="lazy" width="320" height="320"
+           alt="Emmanuel Lujan"></div>
+        <div class="person-name">Emmanuel Lujan</div>
+        <div class="person-role">Research Scientist</div>
+      </a>
+      <a class="person" href="https://github.com/fda-tome" target="_blank" rel="noopener">
+        <div class="person-photo"><img src="assets/team/felipe-tome.webp" loading="lazy" width="320" height="320"
+           alt="Felipe Tomé"></div>
+        <div class="person-name">Felipe Tomé</div>
+        <div class="person-role">Research Software Engineer</div>
+      </a>
+      <a class="person" href="https://github.com/jpsamaroo" target="_blank" rel="noopener">
+        <div class="person-photo"><img src="assets/team/julian-samaroo.webp" loading="lazy" width="320" height="320"
+           alt="Julian Samaroo"></div>
+        <div class="person-name">Julian Samaroo</div>
+        <div class="person-role">Research Software Engineer</div>
+      </a>
+      <a class="person" href="https://evelyne-ringoot.github.io/" target="_blank" rel="noopener">
+        <div class="person-photo"><img src="assets/team/evelyne-ringoot.webp" loading="lazy" width="320" height="320"
+           alt="Evelyne Ringoot"></div>
+        <div class="person-name">Evelyne Ringoot</div>
+        <div class="person-role">PhD Student</div>
+      </a>
+      <a class="person" href="https://www.linkedin.com/in/artemis-pados/" target="_blank" rel="noopener">
+        <div class="person-photo"><img src="assets/team/artemis-pados.webp" loading="lazy" width="320" height="320"
+           alt="Artemis Pados"></div>
+        <div class="person-name">Artemis Pados</div>
+        <div class="person-role">Master's Student</div>
+      </a>
+      <a class="person" href="https://www.linkedin.com/in/victoria-carrica-4020121bb" target="_blank" rel="noopener">
+        <div class="person-photo"><img src="assets/team/victoria-carrica.webp" loading="lazy" width="320" height="320"
+           alt="Victoria Carrica"></div>
+        <div class="person-name">Victoria Carrica</div>
+        <div class="person-role">Undergraduate</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="team-group">
+    <div class="team-group-label">External collaborators</div>
+    <div class="team-grid">
+      <a class="person" href="https://www.linkedin.com/in/rabab-alomairy-ph-d-138626150/" target="_blank" rel="noopener">
+        <div class="person-photo"><img src="assets/team/rabab-alomairy.webp" loading="lazy" width="320" height="320"
+           alt="Rabab Alomairy"></div>
+        <div class="person-name">Rabab Alomairy</div>
+        <div class="person-role">Professor</div>
+        <div class="person-affil">King Abdullah University of Science and Technology (KAUST)</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="team-group">
+    <div class="team-group-label">Alumni</div>
+    <div class="team-grid">
+      <a class="person" href="https://www.linkedin.com/in/yaman-b-otuzbir/" target="_blank" rel="noopener">
+        <div class="person-photo"><img src="assets/team/yaman-otuzbir.webp" loading="lazy" width="320" height="320"
+           alt="Yaman Otuzbir"></div>
+        <div class="person-name">Yaman Otuzbir</div>
+        <div class="person-role">PhD Student</div>
+      </a>
+      <a class="person" href="https://www.linkedin.com/in/rushil-shah-5a8056262" target="_blank" rel="noopener">
+        <div class="person-photo"><img src="assets/team/rushil-shah.webp" loading="lazy" width="320" height="320"
+           alt="Rushil Shah"></div>
+        <div class="person-name">Rushil Shah</div>
+        <div class="person-role">Undergraduate</div>
+      </a>
+      <a class="person" href="https://www.linkedin.com/in/maevechen" target="_blank" rel="noopener">
+        <div class="person-photo"><img src="assets/team/maeve-chen.webp" loading="lazy" width="320" height="320"
+           alt="Maeve Chen"></div>
+        <div class="person-name">Maeve Chen</div>
+        <div class="person-role">Undergraduate</div>
+      </a>
+    </div>
   </div>
 </section>
 
