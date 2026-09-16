@@ -1410,17 +1410,14 @@
       <h2 class="section-title">Describe your system.<br><em>Get a solver</em>.</h2>
     </div>
     <p class="section-lede">
-      <strong>SmartSolve Designer</strong> generates a high-performance linear solver specialized to the problem at hand. It asks <strong>ten questions</strong> about your matrix, your right-hand sides, the baseline to beat and what would count as an improvement. Your answers are frozen into a run specification — and from there two agents, a <em>Proposer</em> and a <em>Reviewer</em>, collaborate until a candidate implementation beats a verified baseline. Any application in which <em>Ax = b</em> is a computational bottleneck is a potential target.
+      <strong>SmartSolve Designer</strong> generates a high-performance linear solver specialized to the problem at hand. It asks a short sequence of questions about your matrix, your right-hand sides, the baseline to beat and what would count as an improvement. Your answers are frozen into a run specification — and from there two agents, a <em>Proposer</em> and a <em>Reviewer</em>, collaborate until a candidate implementation beats a verified baseline. Any application in which <em>Ax = b</em> is a computational bottleneck is a potential target.
     </p>
   </div>
 
   <div class="stage-wrap is-paused">
     <div class="stage-main">
       <div class="stage">
-        <img class="slide is-on" src="assets/designer/workspace.webp" width="1400" height="814"
-             alt="The SmartSolve Designer workspace before any input: a run-setup panel on the left with a Generate Solver button, and an empty agent collaboration panel on the right."
-             data-label="The workspace · Before you start" data-q="Run configuration on the left, the agent collaboration panel on the right. <em>Generate Solver</em> opens the ten-step wizard." data-dur="5000">
-        <img class="slide" src="assets/designer/form-01.webp" loading="lazy" aria-hidden="true" width="929" height="540"
+        <img class="slide is-on" src="assets/designer/form-01.webp" width="929" height="540"
              alt="Wizard step 1 of 10, Matrix: which matrix do you want a faster solver for?"
              data-label="Step 01 of 10 · Matrix" data-q="Which matrix do you want a faster solver for? Use the bundled example, generate one, or point to your own Matrix Market file." data-dur="3800">
         <img class="slide" src="assets/designer/form-02.webp" loading="lazy" aria-hidden="true" width="929" height="540"
@@ -1459,8 +1456,7 @@
       </div>
 
       <div class="stage-ticks" aria-label="Slides">
-        <button class="stage-tick is-act" type="button" aria-label="The workspace · Before you start"></button>
-        <button class="stage-tick tick-sep" type="button" aria-label="Step 01 of 10 · Matrix"></button>
+        <button class="stage-tick" type="button" aria-label="Step 01 of 10 · Matrix"></button>
         <button class="stage-tick" type="button" aria-label="Step 02 of 10 · Right-hand side"></button>
         <button class="stage-tick" type="button" aria-label="Step 03 of 10 · Solver class"></button>
         <button class="stage-tick" type="button" aria-label="Step 04 of 10 · Preconditioner"></button>
@@ -1476,11 +1472,11 @@
 
       <div class="stage-caption">
         <span aria-live="polite">
-          <span class="cap-label">The workspace · Before you start</span>
-          <span class="cap-q">Run configuration on the left, the agent collaboration panel on the right. <em>Generate Solver</em> opens the ten-step wizard.</span>
+          <span class="cap-label">Step 01 of 10 · Matrix</span>
+          <span class="cap-q">Which matrix do you want a faster solver for? Use the bundled example, generate one, or point to your own Matrix Market file.</span>
         </span>
         <span class="stage-tools">
-          <a class="stage-open" href="assets/designer/workspace.webp" target="_blank" rel="noopener">Full size ↗</a>
+          <a class="stage-open" href="assets/designer/form-01.webp" target="_blank" rel="noopener">Full size ↗</a>
           <button class="stage-btn stage-toggle" type="button" aria-label="Pause slideshow">
             <svg viewBox="0 0 10 10" width="10" height="10" aria-hidden="true" focusable="false">
               <g class="ic-pause"><rect x="1.4" y="1" width="2.6" height="8"/><rect x="6" y="1" width="2.6" height="8"/></g>
@@ -1494,9 +1490,7 @@
     </div>
 
     <ol class="stage-rail">
-      <li><button class="rail-btn rail-act is-active" type="button" aria-current="true"><span class="rail-n">·</span><span class="rail-t">The workspace</span></button></li>
-      <li class="rail-div">The ten questions</li>
-      <li><button class="rail-btn" type="button"><span class="rail-n">01</span><span class="rail-t">Matrix</span></button></li>
+      <li><button class="rail-btn is-active" type="button" aria-current="true"><span class="rail-n">01</span><span class="rail-t">Matrix</span></button></li>
       <li><button class="rail-btn" type="button"><span class="rail-n">02</span><span class="rail-t">Right-hand side</span></button></li>
       <li><button class="rail-btn" type="button"><span class="rail-n">03</span><span class="rail-t">Solver class</span></button></li>
       <li><button class="rail-btn" type="button"><span class="rail-n">04</span><span class="rail-t">Preconditioner</span></button></li>
@@ -1645,6 +1639,19 @@
         <div class="pub-venue">Manuscript in preparation</div>
       </div>
       <span class="pub-link preparing">In Preparation</span>
+    </article>
+
+    <article class="pub">
+      <div class="pub-year">2026</div>
+      <div class="pub-content">
+        <h3 class="pub-title"><em>Learning to Select Sparse Linear Solvers with Convolutional Neural Networks</em> <span class="kind-tag">Short Paper</span></h3>
+        <div class="pub-authors">Artemis Pados, Alan Edelman, Emmanuel Lujan, Daniel Pickard, Felipe Tom&eacute;, Christopher Rackauckas</div>
+        <div class="pub-venue">IEEE High Performance Extreme Computing Conference (HPEC), 2026</div>
+      </div>
+      <div class="pub-actions-col">
+        <a href="https://ieee-hpec.org/ieee-hpec-2026-agenda/" class="pub-link" target="_blank" rel="noopener">View &rarr;</a>
+        <button class="pub-bib" onclick="downloadBib('pados2026learning')">BibTeX &darr;</button>
+      </div>
     </article>
 
     <article class="pub">
@@ -1827,7 +1834,7 @@
 
       <div class="software-info">
         <p>
-          A specification-driven, multi-agent system that generates a high-performance linear solver specialized to the problem at hand. A ten-step form fixes the run specification — matrix, right-hand sides, baseline solver and preconditioner, specialization strategies, acceptance thresholds, round budget and target language — and freezes it before discovery begins. A <em>Proposer</em> agent then writes candidate solvers while a <em>Reviewer</em> agent benchmarks each one against a verified same-language baseline, returning diagnostics until a candidate is accepted or the round budget is exhausted.
+          A specification-driven, multi-agent system that generates a high-performance linear solver specialized to the problem at hand. A short form fixes the run specification — matrix, right-hand sides, baseline solver and preconditioner, specialization strategies, acceptance thresholds, round budget and target language — and freezes it before discovery begins. A <em>Proposer</em> agent then writes candidate solvers while a <em>Reviewer</em> agent benchmarks each one against a verified same-language baseline, returning diagnostics until a candidate is accepted or the round budget is exhausted.
         </p>
         <p>
           Every run returns the accepted Julia and C/PETSc source, a consolidated report, language-agnostic pseudocode, machine-readable metrics, and the unedited agent transcript. <a href="#designer" class="inline-link">See the full walkthrough above ↑</a>
@@ -2240,6 +2247,13 @@
 <script>
   // BibTeX
   const bibtex = {
+    pados2026learning: `@inproceedings{pados2026learning,
+  title     = {Learning to Select Sparse Linear Solvers with Convolutional Neural Networks},
+  author    = {Pados, Artemis and Edelman, Alan and Lujan, Emmanuel and Pickard, Daniel and Tom{\\'{e}}, Felipe and Rackauckas, Christopher},
+  booktitle = {IEEE High Performance Extreme Computing Conference (HPEC)},
+  year      = {2026},
+  url       = {https://ieee-hpec.org/ieee-hpec-2026-agenda/}
+}`,
     lujan2026accelerating: `@misc{lujan2026accelerating,
   title  = {Accelerating Linear Solves in Finite Element Simulations with Julia \\& AI},
   author = {Lujan, Emmanuel and Tom{\\'{e}}, Felipe and Alomairy, Rabab and Samaroo, Julian and Pickard, Daniel and Rulko, Theo and Ringoot, Evelyne and Otuzbir, Yaman and Pados, Artemis and Carrica, Victoria and Nguyen, Ngoc and Radovitzky, Raul and Edelman, Alan},
@@ -2325,7 +2339,7 @@
       }
     });
 
-  // SmartSolve Designer — one stage for every screenshot: the workspace, the ten form steps, the run, the result
+  // SmartSolve Designer — one stage for every screenshot: each form step, the run, the result
   (function () {
     const wrap = document.querySelector('.stage-wrap');
     if (!wrap) return;
