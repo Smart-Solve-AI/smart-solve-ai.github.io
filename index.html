@@ -991,6 +991,285 @@
   }
   .footer-bottom a:hover { color: var(--accent-soft); }
 
+
+  /* ------------- SMARTSOLVE DESIGNER ------------- */
+  .designer-flow {
+    background: var(--paper-bright);
+    border: 1px solid var(--rule);
+    padding: 32px 24px;
+    overflow-x: auto;
+  }
+  .designer-flow svg {
+    width: 100%;
+    height: auto;
+    min-width: 900px;
+    display: block;
+  }
+  .designer-split {
+    display: grid;
+    grid-template-columns: 1.35fr 1fr;
+    gap: 60px;
+    margin-top: 60px;
+    align-items: start;
+  }
+  .wizard-steps {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+  }
+  .wizard-step {
+    background: var(--paper-bright);
+    padding: 16px 18px 18px;
+    transition: background 0.25s;
+  }
+  .wizard-step:hover { background: #fff; }
+  .wizard-step:last-child { grid-column: 1 / -1; }
+  .wizard-step-num {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+  }
+  .wizard-step-name {
+    font-family: var(--serif);
+    font-size: 17px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    line-height: 1.25;
+    margin-top: 6px;
+  }
+  .wizard-step-desc {
+    font-family: var(--sans);
+    font-size: 12.5px;
+    line-height: 1.5;
+    color: var(--muted);
+    margin-top: 5px;
+  }
+  .artifact-list {
+    list-style: none;
+    border-top: 2px solid var(--ink);
+  }
+  .artifact {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 16px;
+    padding: 13px 0;
+    border-bottom: 1px solid var(--rule);
+    align-items: baseline;
+  }
+  .artifact-file {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink);
+    word-break: break-word;
+  }
+  .artifact-desc {
+    font-family: var(--sans);
+    font-size: 12.5px;
+    line-height: 1.5;
+    color: var(--muted);
+  }
+  .designer-note {
+    margin-top: 26px;
+    padding: 16px 18px;
+    background: var(--paper-bright);
+    border-left: 2px solid var(--accent);
+    font-family: var(--sans);
+    font-size: 12.5px;
+    line-height: 1.6;
+    color: var(--muted);
+  }
+  .designer-note strong { color: var(--ink-soft); font-weight: 600; }
+  .designer-note + .designer-note { border-left-color: var(--rule); }
+  .designer-actions {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 52px;
+  }
+
+
+  /* ------------- DESIGNER · UNIFIED STAGE ------------- */
+  .stage-wrap {
+    --slide-dur: 3800ms;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 200px;
+    gap: 36px;
+    align-items: start;
+  }
+  .stage {
+    position: relative;
+    aspect-ratio: 929 / 540;
+    background: var(--paper-bright);
+    border: 1px solid var(--rule);
+    overflow: hidden;
+  }
+  .stage img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.55s ease;
+  }
+  .stage img.is-on { opacity: 1; }
+
+  .stage-ticks {
+    display: flex;
+    gap: 4px;
+    margin-top: 14px;
+  }
+  .stage-tick {
+    flex: 1;
+    height: 3px;
+    padding: 0;
+    border: 0;
+    background: var(--rule);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  .stage-tick.is-act { flex: 1.6; }
+  .stage-tick.tick-sep { margin-left: 20px; }
+  .stage-tick::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  .stage-tick.is-done::after { transform: scaleX(1); }
+  .stage-tick.is-active::after { animation: tickFill var(--slide-dur) linear forwards; }
+  .stage-wrap.is-paused .stage-tick.is-active::after { animation-play-state: paused; }
+  @keyframes tickFill { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+  .stage-caption {
+    margin-top: 18px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: start;
+    gap: 24px;
+    min-height: 52px;
+  }
+  .cap-label {
+    display: block;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .cap-q {
+    display: block;
+    margin-top: 7px;
+    font-family: var(--sans);
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+  }
+  .stage-tools {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .stage-open {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 2px;
+    margin-right: 6px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .stage-open:hover { color: var(--accent); border-bottom-color: var(--accent); }
+  .stage-btn {
+    width: 30px;
+    height: 30px;
+    border: 1px solid var(--rule);
+    background: transparent;
+    color: var(--ink-soft);
+    font-family: var(--mono);
+    font-size: 13px;
+    line-height: 1;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+  }
+  .stage-btn:hover {
+    background: var(--ink);
+    color: var(--paper);
+    border-color: var(--ink);
+  }
+  .stage-toggle svg { fill: currentColor; display: block; }
+  .stage-toggle .ic-play { display: none; }
+  .stage-wrap.is-stopped .stage-toggle .ic-pause { display: none; }
+  .stage-wrap.is-stopped .stage-toggle .ic-play { display: block; }
+
+  .stage-rail {
+    list-style: none;
+    border-top: 2px solid var(--ink);
+  }
+  .rail-btn {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 24px 1fr;
+    gap: 10px;
+    align-items: baseline;
+    text-align: left;
+    padding: 9px 10px;
+    border: 0;
+    border-bottom: 1px solid var(--rule);
+    border-left: 2px solid transparent;
+    background: transparent;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .rail-btn:hover { background: var(--paper-bright); }
+  .rail-btn.is-active {
+    background: var(--paper-bright);
+    border-left-color: var(--accent);
+  }
+  .rail-n {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+  }
+  .rail-btn.is-active .rail-n { color: var(--accent); }
+  .rail-t {
+    font-family: var(--serif);
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+    color: var(--ink-soft);
+  }
+  .rail-btn.is-active .rail-t { color: var(--ink); }
+  .rail-btn.rail-act .rail-t { font-style: italic; }
+  .rail-div {
+    font-family: var(--mono);
+    font-size: 9.5px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 15px 10px 8px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .stage-tick.is-active::after { animation: none; transform: scaleX(1); }
+    .stage img { transition: none; }
+  }
+
   /* ------------- RESPONSIVE ------------- */
   @media (max-width: 960px) {
     .topbar-inner { padding: 14px 24px; }
@@ -1017,6 +1296,15 @@
     .product-badge { flex-wrap: wrap; gap: 8px 16px; }
     .product-badge-kind { margin-left: 0; width: 100%; }
     .product-block { margin-bottom: 56px; }
+    .designer-flow { padding: 20px 12px; }
+    .designer-flow svg { min-width: 880px; }
+    .designer-split { grid-template-columns: 1fr; gap: 40px; margin-top: 40px; }
+    .wizard-steps { grid-template-columns: 1fr; }
+    .artifact { grid-template-columns: 1fr; gap: 4px; }
+    .designer-actions { margin-top: 36px; }
+    .stage-caption { grid-template-columns: 1fr; gap: 14px; }
+    .stage-tools { justify-content: flex-start; }
+    .stage-wrap { grid-template-columns: 1fr; gap: 32px; }
     .ack-row { grid-template-columns: 1fr; }
     .footer-top { grid-template-columns: 1fr; gap: 40px; }
     .footer-bottom { flex-direction: column; gap: 12px; }
@@ -1059,6 +1347,7 @@
       <span class="brand-tag">CSAIL · MIT</span>
     </a>
     <nav class="topnav">
+      <a href="#designer">Designer</a>
       <a href="#methodology">Methodology</a>
       <a href="#publications">Publications</a>
       <a href="#talks">Talks</a>
@@ -1113,11 +1402,135 @@
   <div class="hero-rule"></div>
 </section>
 
+<!-- SMARTSOLVE DESIGNER -->
+<section class="content" id="designer">
+  <div class="section-head">
+    <div>
+      <div class="section-eyebrow"><span class="num">01</span> SmartSolve Designer</div>
+      <h2 class="section-title">Describe your system.<br><em>Get a solver</em>.</h2>
+    </div>
+    <p class="section-lede">
+      <strong>SmartSolve Designer</strong> generates a high-performance linear solver specialized to the problem at hand. It asks <strong>ten questions</strong> about your matrix, your right-hand sides, the baseline to beat and what would count as an improvement. Your answers are frozen into a run specification — and from there two agents, a <em>Proposer</em> and a <em>Reviewer</em>, collaborate until a candidate implementation beats a verified baseline. Any application in which <em>Ax = b</em> is a computational bottleneck is a potential target.
+    </p>
+  </div>
+
+  <div class="stage-wrap is-paused">
+    <div class="stage-main">
+      <div class="stage">
+        <img class="slide is-on" src="assets/designer/workspace.webp" width="1400" height="814"
+             alt="The SmartSolve Designer workspace before any input: a run-setup panel on the left with a Generate Solver button, and an empty agent collaboration panel on the right."
+             data-label="The workspace · Before you start" data-q="Run configuration on the left, the agent collaboration panel on the right. <em>Generate Solver</em> opens the ten-step wizard." data-dur="5000">
+        <img class="slide" src="assets/designer/form-01.webp" loading="lazy" aria-hidden="true" width="929" height="540"
+             alt="Wizard step 1 of 10, Matrix: which matrix do you want a faster solver for?"
+             data-label="Step 01 of 10 · Matrix" data-q="Which matrix do you want a faster solver for? Use the bundled example, generate one, or point to your own Matrix Market file." data-dur="3800">
+        <img class="slide" src="assets/designer/form-02.webp" loading="lazy" aria-hidden="true" width="929" height="540"
+             alt="Wizard step 2 of 10, Right-hand side: what do the right-hand-side vectors b look like in your application?"
+             data-label="Step 02 of 10 · Right-hand side" data-q="What do the right-hand-side vectors <em>b</em> look like in your application? The test vectors stay held out." data-dur="3800">
+        <img class="slide" src="assets/designer/form-03.webp" loading="lazy" aria-hidden="true" width="929" height="540"
+             alt="Wizard step 3 of 10, Solver class: what class of solver should the specialised algorithm be based on?"
+             data-label="Step 03 of 10 · Solver class" data-q="What class of solver should the specialised algorithm be based on — or should SmartSolve recommend one?" data-dur="3800">
+        <img class="slide" src="assets/designer/form-04.webp" loading="lazy" aria-hidden="true" width="929" height="540"
+             alt="Wizard step 4 of 10, Preconditioner: which preconditioner group should be used with the solver?"
+             data-label="Step 04 of 10 · Preconditioner" data-q="Which preconditioner group should be used with the solver?" data-dur="3800">
+        <img class="slide" src="assets/designer/form-05.webp" loading="lazy" aria-hidden="true" width="929" height="540"
+             alt="Wizard step 5 of 10, Baseline: set the baseline solver parameters, or let SmartSolve recommend them."
+             data-label="Step 05 of 10 · Baseline" data-q="Set the baseline parameters yourself, or let SmartSolve recommend and verify a convergent configuration." data-dur="3800">
+        <img class="slide" src="assets/designer/form-06.webp" loading="lazy" aria-hidden="true" width="929" height="540"
+             alt="Wizard step 6 of 10, Strategies: which specialisation strategies should the agent use?"
+             data-label="Step 06 of 10 · Strategies" data-q="Which specialisation strategies should the agent use — sparsity and structure, MPI, GPU, mixed precision?" data-dur="3800">
+        <img class="slide" src="assets/designer/form-07.webp" loading="lazy" aria-hidden="true" width="929" height="540"
+             alt="Wizard step 7 of 10, Thresholds: set the acceptance thresholds for speedup, accuracy and memory."
+             data-label="Step 07 of 10 · Thresholds" data-q="Set the acceptance thresholds — speedup, accuracy, and memory. This is the contract a candidate must satisfy." data-dur="3800">
+        <img class="slide" src="assets/designer/form-08.webp" loading="lazy" aria-hidden="true" width="929" height="540"
+             alt="Wizard step 8 of 10, Rounds: how many rounds should the agent team attempt before giving up?"
+             data-label="Step 08 of 10 · Rounds" data-q="How many rounds should the agent team attempt before giving up?" data-dur="3800">
+        <img class="slide" src="assets/designer/form-09.webp" loading="lazy" aria-hidden="true" width="929" height="540"
+             alt="Wizard step 9 of 10, Language: which implementations should SmartSolve generate?"
+             data-label="Step 09 of 10 · Language" data-q="Which implementation(s) should SmartSolve generate — Julia, C with PETSc, or both?" data-dur="3800">
+        <img class="slide" src="assets/designer/form-10.webp" loading="lazy" aria-hidden="true" width="929" height="540"
+             alt="Wizard step 10 of 10, Extra context: is there anything you know about this problem that could help SmartSolve?"
+             data-label="Step 10 of 10 · Extra context" data-q="Anything you know that the matrix alone cannot reveal: the physics, known convergence issues, hardware constraints." data-dur="3800">
+        <img class="slide" src="assets/designer/run.webp" loading="lazy" aria-hidden="true" width="1800" height="1046"
+             alt="The run panel: the frozen run configuration on the left, and a live stream of matrix analysis, baseline preflight, Proposer proposals and Reviewer decisions on the right."
+             data-label="The run · Agents at work" data-q="Your frozen specification on the left; on the right, the matrix analysis, the baseline preflight, and every proposal and verdict as the <em>Proposer</em> and <em>Reviewer</em> iterate." data-dur="7000">
+        <img class="slide" src="assets/designer/results.webp" loading="lazy" aria-hidden="true" width="1592" height="925"
+             alt="The completion view: an accepted verdict, then the report, the accepted Julia and C solver source, pseudocode, metrics and the full agent transcript, each with a download link."
+             data-label="The result · Your solver" data-q="Accepted on round 1. Deployable source for each backend, a consolidated report, pseudocode, machine-readable metrics and the unedited agent transcript." data-dur="7000">
+      </div>
+
+      <div class="stage-ticks" aria-label="Slides">
+        <button class="stage-tick is-act" type="button" aria-label="The workspace · Before you start"></button>
+        <button class="stage-tick tick-sep" type="button" aria-label="Step 01 of 10 · Matrix"></button>
+        <button class="stage-tick" type="button" aria-label="Step 02 of 10 · Right-hand side"></button>
+        <button class="stage-tick" type="button" aria-label="Step 03 of 10 · Solver class"></button>
+        <button class="stage-tick" type="button" aria-label="Step 04 of 10 · Preconditioner"></button>
+        <button class="stage-tick" type="button" aria-label="Step 05 of 10 · Baseline"></button>
+        <button class="stage-tick" type="button" aria-label="Step 06 of 10 · Strategies"></button>
+        <button class="stage-tick" type="button" aria-label="Step 07 of 10 · Thresholds"></button>
+        <button class="stage-tick" type="button" aria-label="Step 08 of 10 · Rounds"></button>
+        <button class="stage-tick" type="button" aria-label="Step 09 of 10 · Language"></button>
+        <button class="stage-tick" type="button" aria-label="Step 10 of 10 · Extra context"></button>
+        <button class="stage-tick is-act tick-sep" type="button" aria-label="The run · Agents at work"></button>
+        <button class="stage-tick is-act" type="button" aria-label="The result · Your solver"></button>
+      </div>
+
+      <div class="stage-caption">
+        <span aria-live="polite">
+          <span class="cap-label">The workspace · Before you start</span>
+          <span class="cap-q">Run configuration on the left, the agent collaboration panel on the right. <em>Generate Solver</em> opens the ten-step wizard.</span>
+        </span>
+        <span class="stage-tools">
+          <a class="stage-open" href="assets/designer/workspace.webp" target="_blank" rel="noopener">Full size ↗</a>
+          <button class="stage-btn stage-toggle" type="button" aria-label="Pause slideshow">
+            <svg viewBox="0 0 10 10" width="10" height="10" aria-hidden="true" focusable="false">
+              <g class="ic-pause"><rect x="1.4" y="1" width="2.6" height="8"/><rect x="6" y="1" width="2.6" height="8"/></g>
+              <path class="ic-play" d="M2.2 1 L8.8 5 L2.2 9 Z"/>
+            </svg>
+          </button>
+          <button class="stage-btn stage-prev" type="button" aria-label="Previous slide">←</button>
+          <button class="stage-btn stage-next" type="button" aria-label="Next slide">→</button>
+        </span>
+      </div>
+    </div>
+
+    <ol class="stage-rail">
+      <li><button class="rail-btn rail-act is-active" type="button" aria-current="true"><span class="rail-n">·</span><span class="rail-t">The workspace</span></button></li>
+      <li class="rail-div">The ten questions</li>
+      <li><button class="rail-btn" type="button"><span class="rail-n">01</span><span class="rail-t">Matrix</span></button></li>
+      <li><button class="rail-btn" type="button"><span class="rail-n">02</span><span class="rail-t">Right-hand side</span></button></li>
+      <li><button class="rail-btn" type="button"><span class="rail-n">03</span><span class="rail-t">Solver class</span></button></li>
+      <li><button class="rail-btn" type="button"><span class="rail-n">04</span><span class="rail-t">Preconditioner</span></button></li>
+      <li><button class="rail-btn" type="button"><span class="rail-n">05</span><span class="rail-t">Baseline</span></button></li>
+      <li><button class="rail-btn" type="button"><span class="rail-n">06</span><span class="rail-t">Strategies</span></button></li>
+      <li><button class="rail-btn" type="button"><span class="rail-n">07</span><span class="rail-t">Thresholds</span></button></li>
+      <li><button class="rail-btn" type="button"><span class="rail-n">08</span><span class="rail-t">Rounds</span></button></li>
+      <li><button class="rail-btn" type="button"><span class="rail-n">09</span><span class="rail-t">Language</span></button></li>
+      <li><button class="rail-btn" type="button"><span class="rail-n">10</span><span class="rail-t">Extra context</span></button></li>
+      <li class="rail-div">After the form</li>
+      <li><button class="rail-btn rail-act" type="button"><span class="rail-n">·</span><span class="rail-t">The run</span></button></li>
+      <li><button class="rail-btn rail-act" type="button"><span class="rail-n">·</span><span class="rail-t">The result</span></button></li>
+    </ol>
+  </div>
+
+  <div class="designer-note">
+    <strong>Requirements:</strong> SmartSolve Designer runs inside Claude Code and needs Julia 1.10 or newer; PETSc and an MPI C compiler are optional, and only required for the C backend.
+  </div>
+
+  <div class="designer-actions">
+    <a href="SmartSolve_Designer_Quick_Start_Tutorial.pdf" class="btn btn-primary" target="_blank" rel="noopener">
+      <span>Quick Start Tutorial</span><span class="btn-arrow">↗</span>
+    </a>
+    <a href="https://github.com/Smart-Solve-AI/SmartSolveDesigner" class="btn btn-ghost btn-pending" target="_blank" rel="noopener" aria-disabled="true">
+      <span>View on GitHub</span>
+    </a>
+  </div>
+</section>
+
 <!-- METHODOLOGY -->
 <section class="content" id="methodology">
   <div class="section-head">
     <div>
-      <div class="section-eyebrow"><span class="num">01</span> Methodology</div>
+      <div class="section-eyebrow"><span class="num">02</span> Methodology</div>
       <h2 class="section-title">From <em>benchmark</em> to <em>algorithms</em>.</h2>
     </div>
     <p class="section-lede">
@@ -1211,7 +1624,7 @@
 <section class="content" id="publications">
   <div class="section-head">
     <div>
-      <div class="section-eyebrow"><span class="num">02</span> Publications</div>
+      <div class="section-eyebrow"><span class="num">03</span> Publications</div>
       <h2 class="section-title">Selected <em>research</em> output.</h2>
     </div>
     <p class="section-lede">
@@ -1305,7 +1718,7 @@
 <section class="content" id="talks">
   <div class="section-head">
     <div>
-      <div class="section-eyebrow"><span class="num">03</span> Talks</div>
+      <div class="section-eyebrow"><span class="num">04</span> Talks</div>
       <h2 class="section-title">Presentations &amp; <em>keynotes</em>.</h2>
     </div>
     <p class="section-lede">
@@ -1347,27 +1760,27 @@
 <section class="content" id="software">
   <div class="section-head">
     <div>
-      <div class="section-eyebrow"><span class="num">04</span> Software</div>
+      <div class="section-eyebrow"><span class="num">05</span> Software</div>
       <h2 class="section-title"><em>Open</em>, reproducible software.</h2>
     </div>
     <p class="section-lede">
-      Three open-source components developed under the SmartSolveAI project, with public source code, scripts, and reproducibility instructions.
+      Three components developed under the SmartSolveAI project, released with public source code, scripts, and reproducibility instructions.
     </p>
   </div>
 
-  <!-- PRODUCT 1: SmartSolve.jl -->
+  <!-- PRODUCT 1: SmartSolve Designer -->
   <div class="product-block">
     <div class="product-badge">
       <span class="product-badge-num">01</span>
-      <span class="product-badge-name">SmartSolve.jl</span>
-      <span class="product-badge-kind">Multi-agent toolbox</span>
+      <span class="product-badge-name">SmartSolve Designer</span>
+      <span class="product-badge-kind">Specification-driven solver generation</span>
     </div>
 
     <!-- Top row: architecture diagram (left) + description (right) -->
     <div class="software-block">
       <div>
         <svg class="discovery-flow" viewBox="0 0 560 230" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="agentLoopTitle">
-          <title id="agentLoopTitle">The SmartSolve.jl agent loop: a Proposer agent generates a candidate implementation; a Reviewer agent evaluates it and either returns revisions to the Proposer or accepts the candidate as the final algorithm.</title>
+          <title id="agentLoopTitle">The SmartSolve Designer agent loop: a Proposer agent writes a candidate solver; a Reviewer agent benchmarks it against a verified baseline and either returns diagnostics to the Proposer or accepts the candidate as the final solver.</title>
 
           <defs>
             <marker id="arrInk" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
@@ -1383,7 +1796,7 @@
             <rect x="53" y="50" width="140" height="90" fill="none" stroke="#0a0a0a" stroke-width="1.5"/>
             <text x="123" y="76" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="3" fill="#5c6773">AGENT</text>
             <text x="123" y="108" text-anchor="middle" font-family="Fraunces, serif" font-size="22" font-weight="500" font-style="italic" fill="#0a0a0a">Proposer</text>
-            <text x="123" y="130" text-anchor="middle" font-family="Inter Tight, sans-serif" font-size="12" fill="#5c6773">generates a candidate</text>
+            <text x="123" y="130" text-anchor="middle" font-family="Inter Tight, sans-serif" font-size="12" fill="#5c6773">writes a candidate</text>
           </g>
 
           <!-- REVIEWER -->
@@ -1391,16 +1804,16 @@
             <rect x="313" y="50" width="140" height="90" fill="none" stroke="#0a0a0a" stroke-width="1.5"/>
             <text x="383" y="76" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="3" fill="#5c6773">AGENT</text>
             <text x="383" y="108" text-anchor="middle" font-family="Fraunces, serif" font-size="22" font-weight="500" font-style="italic" fill="#0a0a0a">Reviewer</text>
-            <text x="383" y="130" text-anchor="middle" font-family="Inter Tight, sans-serif" font-size="12" fill="#5c6773">evaluates &amp; decides</text>
+            <text x="383" y="130" text-anchor="middle" font-family="Inter Tight, sans-serif" font-size="12" fill="#5c6773">benchmarks &amp; decides</text>
           </g>
 
           <!-- FORWARD: candidate (solid ink, top) -->
           <path d="M 193 80 L 309 80" fill="none" stroke="#0a0a0a" stroke-width="1.4" marker-end="url(#arrInk)"/>
           <text x="251" y="71" text-anchor="middle" font-family="Inter Tight, sans-serif" font-size="11" font-style="italic" fill="#0a0a0a">candidate</text>
 
-          <!-- FEEDBACK: revisions (dashed crimson, bottom) -->
+          <!-- FEEDBACK: diagnostics (dashed crimson, bottom) -->
           <path d="M 313 110 L 197 110" fill="none" stroke="#8a0d1f" stroke-width="1.4" stroke-dasharray="4 3" marker-end="url(#arrAcc)"/>
-          <text x="251" y="127" text-anchor="middle" font-family="Inter Tight, sans-serif" font-size="11" font-style="italic" fill="#8a0d1f">revisions</text>
+          <text x="251" y="127" text-anchor="middle" font-family="Inter Tight, sans-serif" font-size="11" font-style="italic" fill="#8a0d1f">diagnostics</text>
 
           <!-- EXIT: accept (solid crimson, right) -->
           <path d="M 453 95 L 508 95" fill="none" stroke="#8a0d1f" stroke-width="1.4" marker-end="url(#arrAcc)"/>
@@ -1408,26 +1821,28 @@
           <text x="480" y="118" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="2" fill="#5c6773">OUT</text>
 
           <!-- CAPTION -->
-          <text x="251" y="190" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="3" fill="#5c6773">PROPOSE  ·  REVIEW  ·  ITERATE</text>
+          <text x="251" y="190" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="3" fill="#5c6773">PROPOSE  ·  BENCHMARK  ·  REVISE</text>
         </svg>
       </div>
 
       <div class="software-info">
         <p>
-          A new multi-agent implementation of SmartSolve.jl. It exposes a minimal interface: install the package, describe the algorithm you want, and let the toolbox generate a high-performance implementation grounded in benchmarked dispatch strategies. The example shown produces an LU factorization with iterative refinement from a single natural-language prompt and a reference.
+          A specification-driven, multi-agent system that generates a high-performance linear solver specialized to the problem at hand. A ten-step form fixes the run specification — matrix, right-hand sides, baseline solver and preconditioner, specialization strategies, acceptance thresholds, round budget and target language — and freezes it before discovery begins. A <em>Proposer</em> agent then writes candidate solvers while a <em>Reviewer</em> agent benchmarks each one against a verified same-language baseline, returning diagnostics until a candidate is accepted or the round budget is exhausted.
+        </p>
+        <p>
+          Every run returns the accepted Julia and C/PETSc source, a consolidated report, language-agnostic pseudocode, machine-readable metrics, and the unedited agent transcript. <a href="#designer" class="inline-link">See the full walkthrough above ↑</a>
         </p>
         <div class="software-actions">
-          <a href="https://github.com/Smart-Solve-AI/SmartSolve.jl" class="btn btn-primary" target="_blank" rel="noopener">
-            <span>View on GitHub</span><span class="btn-arrow">↗</span>
+          <a href="SmartSolve_Designer_Quick_Start_Tutorial.pdf" class="btn btn-primary" target="_blank" rel="noopener">
+            <span>Quick Start Tutorial</span><span class="btn-arrow">↗</span>
           </a>
-          <a href="https://doi.org/10.5281/zenodo.15784217" class="btn btn-ghost" target="_blank" rel="noopener">
-            <span>Cite via Zenodo</span><span class="btn-arrow">↗</span>
+          <a href="https://github.com/Smart-Solve-AI/SmartSolveDesigner" class="btn btn-ghost btn-pending" target="_blank" rel="noopener" aria-disabled="true">
+            <span>View on GitHub</span>
           </a>
         </div>
         <div class="software-citation">
-          Lujan, E., Shah, R., Alomairy, R., &amp; Edelman, A. (2025).<br>
-          <em>SmartSolve.jl: AI for Algorithmic Discovery</em>, v0.1.0-alpha. Zenodo.<br>
-          doi:10.5281/zenodo.15784217
+          Runs inside Claude Code · Julia 1.10 or newer required<br>
+          PETSc + mpicc optional (C backend) · pandoc + xelatex optional (PDF report)
         </div>
       </div>
     </div>
@@ -1694,7 +2109,7 @@
 <section class="content" id="team">
   <div class="section-head">
     <div>
-      <div class="section-eyebrow"><span class="num">05</span> Team</div>
+      <div class="section-eyebrow"><span class="num">06</span> Team</div>
       <h2 class="section-title">Built at the <em>Julia Lab</em>, MIT.</h2>
     </div>
     <p class="section-lede">
@@ -1714,7 +2129,7 @@
 <section class="content" id="acknowledgements">
   <div class="section-head">
     <div>
-      <div class="section-eyebrow"><span class="num">06</span> Acknowledgements</div>
+      <div class="section-eyebrow"><span class="num">07</span> Acknowledgements</div>
       <h2 class="section-title">With <em>support</em> from.</h2>
     </div>
     <p class="section-lede">
@@ -1794,6 +2209,7 @@
       <div class="footer-col">
         <h4>Project</h4>
         <ul>
+          <li><a href="#designer">Designer</a></li>
           <li><a href="#methodology">Methodology</a></li>
           <li><a href="#publications">Publications</a></li>
           <li><a href="#talks">Talks</a></li>
@@ -1897,7 +2313,7 @@
     });
   }, { threshold: 0, rootMargin: '0px 0px -18% 0px' });
 
-  document.querySelectorAll('.section-head, .pipeline, .pub, .talk-card, .ack-card, .product-block')
+  document.querySelectorAll('.section-head, .pipeline, .stage-wrap, .designer-actions, .pub, .talk-card, .ack-card, .product-block')
     .forEach(el => {
       el.classList.add('reveal');
       // Reveal whatever is already on the first screen so there's no blank gap on load;
@@ -1908,6 +2324,101 @@
         io.observe(el);
       }
     });
+
+  // SmartSolve Designer — one stage for every screenshot: the workspace, the ten form steps, the run, the result
+  (function () {
+    const wrap = document.querySelector('.stage-wrap');
+    if (!wrap) return;
+
+    const slides = Array.from(wrap.querySelectorAll('.stage img'));
+    const ticks  = Array.from(wrap.querySelectorAll('.stage-tick'));
+    const rail   = Array.from(wrap.querySelectorAll('.rail-btn'));
+    const label  = wrap.querySelector('.cap-label');
+    const quest  = wrap.querySelector('.cap-q');
+    const open   = wrap.querySelector('.stage-open');
+    const toggle = wrap.querySelector('.stage-toggle');
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    let i = 0, timer = null, hovered = false, onScreen = false, stopped = reduce;
+
+    const dur = (n) => parseInt(slides[n].dataset.dur, 10) || 3800;
+
+    function render() {
+      slides.forEach((s, k) => {
+        s.classList.toggle('is-on', k === i);
+        if (k === i) s.removeAttribute('aria-hidden'); else s.setAttribute('aria-hidden', 'true');
+      });
+      rail.forEach((r, k) => {
+        r.classList.toggle('is-active', k === i);
+        if (k === i) r.setAttribute('aria-current', 'true'); else r.removeAttribute('aria-current');
+      });
+      ticks.forEach((t, k) => {
+        t.classList.remove('is-active', 'is-done');
+        if (k < i) t.classList.add('is-done');
+      });
+      const t = ticks[i];
+      if (t) {
+        t.style.setProperty('--slide-dur', dur(i) + 'ms');
+        void t.offsetWidth;                 // restart the fill animation
+        t.classList.add('is-active');
+      }
+      label.textContent = slides[i].dataset.label;
+      quest.innerHTML   = slides[i].dataset.q;
+      open.href         = slides[i].getAttribute('src');
+    }
+
+    function go(n, manual) {
+      i = (n + slides.length) % slides.length;
+      render();
+      if (manual) play();
+    }
+
+    function play() {
+      stop();
+      if (stopped || hovered || !onScreen) return;
+      wrap.classList.remove('is-paused');
+      timer = setTimeout(() => go(i + 1), dur(i));   // each slide holds for its own duration
+    }
+
+    function stop() {
+      if (timer) { clearTimeout(timer); timer = null; }
+      wrap.classList.add('is-paused');
+    }
+
+    toggle.addEventListener('click', () => {
+      stopped = !stopped;
+      wrap.classList.toggle('is-stopped', stopped);
+      toggle.setAttribute('aria-label', stopped ? 'Play slideshow' : 'Pause slideshow');
+      stopped ? stop() : play();
+    });
+    if (reduce) {                            // honour reduced motion: start parked on slide one
+      wrap.classList.add('is-stopped');
+      toggle.setAttribute('aria-label', 'Play slideshow');
+    }
+
+    wrap.addEventListener('mouseenter', () => { hovered = true;  stop(); });
+    wrap.addEventListener('mouseleave', () => { hovered = false; play(); });
+    wrap.addEventListener('focusin',    () => { hovered = true;  stop(); });
+    wrap.addEventListener('focusout',   () => { hovered = false; play(); });
+
+    wrap.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') { e.preventDefault(); go(i + 1, true); }
+      else if (e.key === 'ArrowLeft') { e.preventDefault(); go(i - 1, true); }
+    });
+
+    wrap.querySelector('.stage-prev').addEventListener('click', () => go(i - 1, true));
+    wrap.querySelector('.stage-next').addEventListener('click', () => go(i + 1, true));
+    ticks.forEach((t, k) => t.addEventListener('click', () => go(k, true)));
+    rail.forEach((r, k) => r.addEventListener('click', () => go(k, true)));
+
+    document.addEventListener('visibilitychange', () => document.hidden ? stop() : play());
+
+    new IntersectionObserver((entries) => {
+      entries.forEach(e => { onScreen = e.isIntersecting; onScreen ? play() : stop(); });
+    }, { threshold: 0.25 }).observe(wrap);
+
+    render();
+  })();
 </script>
 
 </body>
