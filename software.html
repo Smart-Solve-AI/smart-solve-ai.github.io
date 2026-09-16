@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-X3NBB3QCY7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-X3NBB3QCY7');
+</script>
+<title>Software — SmartSolveAI | MIT</title>
+<meta name="description" content="Open, reproducible software from the SmartSolveAI project: SmartSolve Designer, SmartDiscovery and NeuralLinearSolve.jl." />
+<link rel="canonical" href="https://smartsolveai.mit.edu/software.html" />
+<!-- Link previews. Plain meta tags — no account or service involved.
+     Card regenerated from assets/social/og-card.src.html:
+     google-chrome --headless --window-size=1200,630 --screenshot=assets/social/og-card.png <url> -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="SmartSolveAI" />
+<meta property="og:url" content="https://smartsolveai.mit.edu/software.html" />
+<meta property="og:title" content="Software — SmartSolveAI" />
+<meta property="og:description" content="Open, reproducible software from the SmartSolveAI project: SmartSolve Designer, SmartDiscovery and NeuralLinearSolve.jl." />
+<meta property="og:image" content="https://smartsolveai.mit.edu/assets/social/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="SmartSolveAI — AI-Guided Algorithm Discovery for Fast Linear Algebra. MIT CSAIL." />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'><g stroke='%230a0a0a' stroke-width='3' fill='none'><rect x='4' y='4' width='18' height='18'/><rect x='26' y='4' width='18' height='18'/><rect x='48' y='4' width='18' height='18'/><rect x='4' y='26' width='18' height='18'/><rect x='48' y='26' width='18' height='18'/><rect x='4' y='48' width='18' height='18'/><rect x='26' y='48' width='18' height='18'/><rect x='48' y='48' width='18' height='18'/></g><rect x='26' y='26' width='18' height='18' fill='%238a0d1f'/></svg>" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css?v=90e2dcd7-2072f599">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- TOP BAR -->
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="brand" aria-label="SmartSolveAI home">
+      <svg class="brand-svg" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <g stroke="#0a0a0a" stroke-width="1.6" fill="none">
+          <rect x="4"  y="4"  width="18" height="18"/>
+          <rect x="26" y="4"  width="18" height="18"/>
+          <rect x="48" y="4"  width="18" height="18"/>
+          <rect x="4"  y="26" width="18" height="18"/>
+          <rect x="48" y="26" width="18" height="18"/>
+          <rect x="4"  y="48" width="18" height="18"/>
+          <rect x="26" y="48" width="18" height="18"/>
+          <rect x="48" y="48" width="18" height="18"/>
+        </g>
+        <rect x="26" y="26" width="18" height="18" fill="#8a0d1f"/>
+      </svg>
+      <span class="brand-mark">SmartSolve<span class="brand-mark-ai">AI</span></span>
+      <span class="brand-tag">CSAIL · MIT</span>
+    </a>
+    <nav class="topnav">
+      <a href="index.html">Home</a>
+      <a href="methodology.html">Methodology</a>
+      <a href="research.html">Research</a>
+      <a href="software.html" class="is-active">Software</a>
+      <a href="team.html">Team</a>
+      <a href="https://github.com/Smart-Solve-AI">GitHub ↗</a>
+    </nav>
+  </div>
+</header>
+
+
+
+<main id="main">
+<!-- PAGE HEAD -->
+<header class="page-head">
+  <div class="page-head-inner">
+    <div class="page-eyebrow">Software</div>
+    <h1 class="page-title"><em>Open</em>, reproducible software.</h1>
+    <p class="page-lede">Three components developed under the SmartSolveAI project, released with public source code, scripts, and reproducibility instructions.</p>
+  </div>
+</header>
+<div class="page-rule"></div>
+
+<!-- SOFTWARE -->
+<section class="content" id="software">
+
+  <!-- PRODUCT 1: SmartSolve Designer -->
+  <div class="product-block">
+    <div class="product-badge">
+      <span class="product-badge-num">01</span>
+      <span class="product-badge-name">SmartSolve Designer</span>
+      <span class="product-badge-kind">Specification-driven solver generation</span>
+    </div>
+
+    <!-- Top row: architecture diagram (left) + description (right) -->
+    <div class="software-block">
+      <div>
+        <svg class="discovery-flow" viewBox="0 0 560 230" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="agentLoopTitle">
+          <title id="agentLoopTitle">The SmartSolve Designer agent loop: a Proposer agent writes a candidate solver; a Reviewer agent benchmarks it against a verified baseline and either returns diagnostics to the Proposer or accepts the candidate as the final solver.</title>
+
+          <defs>
+            <marker id="arrInk" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill="#0a0a0a"/>
+            </marker>
+            <marker id="arrAcc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill="#8a0d1f"/>
+            </marker>
+          </defs>
+
+          <!-- PROPOSER -->
+          <g>
+            <rect x="53" y="50" width="140" height="90" fill="none" stroke="#0a0a0a" stroke-width="1.5"/>
+            <text x="123" y="76" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="3" fill="#5c6773">AGENT</text>
+            <text x="123" y="108" text-anchor="middle" font-family="Fraunces, serif" font-size="22" font-weight="500" font-style="italic" fill="#0a0a0a">Proposer</text>
+            <text x="123" y="130" text-anchor="middle" font-family="Inter Tight, sans-serif" font-size="12" fill="#5c6773">writes a candidate</text>
+          </g>
+
+          <!-- REVIEWER -->
+          <g>
+            <rect x="313" y="50" width="140" height="90" fill="none" stroke="#0a0a0a" stroke-width="1.5"/>
+            <text x="383" y="76" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="3" fill="#5c6773">AGENT</text>
+            <text x="383" y="108" text-anchor="middle" font-family="Fraunces, serif" font-size="22" font-weight="500" font-style="italic" fill="#0a0a0a">Reviewer</text>
+            <text x="383" y="130" text-anchor="middle" font-family="Inter Tight, sans-serif" font-size="12" fill="#5c6773">benchmarks &amp; decides</text>
+          </g>
+
+          <!-- FORWARD: candidate (solid ink, top) -->
+          <path d="M 193 80 L 309 80" fill="none" stroke="#0a0a0a" stroke-width="1.4" marker-end="url(#arrInk)"/>
+          <text x="251" y="71" text-anchor="middle" font-family="Inter Tight, sans-serif" font-size="11" font-style="italic" fill="#0a0a0a">candidate</text>
+
+          <!-- FEEDBACK: diagnostics (dashed crimson, bottom) -->
+          <path d="M 313 110 L 197 110" fill="none" stroke="#8a0d1f" stroke-width="1.4" stroke-dasharray="4 3" marker-end="url(#arrAcc)"/>
+          <text x="251" y="127" text-anchor="middle" font-family="Inter Tight, sans-serif" font-size="11" font-style="italic" fill="#8a0d1f">diagnostics</text>
+
+          <!-- EXIT: accept (solid crimson, right) -->
+          <path d="M 453 95 L 508 95" fill="none" stroke="#8a0d1f" stroke-width="1.4" marker-end="url(#arrAcc)"/>
+          <text x="480" y="86" text-anchor="middle" font-family="Inter Tight, sans-serif" font-size="11" font-style="italic" fill="#8a0d1f">accept</text>
+          <text x="480" y="118" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="2" fill="#5c6773">OUT</text>
+
+          <!-- CAPTION -->
+          <text x="251" y="190" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="3" fill="#5c6773">PROPOSE  ·  BENCHMARK  ·  REVISE</text>
+        </svg>
+      </div>
+
+      <div class="software-info">
+        <p>
+          A specification-driven, multi-agent system that generates a high-performance linear solver specialized to the problem at hand. A short form fixes the run specification — matrix, right-hand sides, baseline solver and preconditioner, specialization strategies, acceptance thresholds, round budget and target language — and freezes it before discovery begins. A <em>Proposer</em> agent then writes candidate solvers while a <em>Reviewer</em> agent benchmarks each one against a verified same-language baseline, returning diagnostics until a candidate is accepted or the round budget is exhausted.
+        </p>
+        <p>
+          Every run returns the accepted Julia and C/PETSc source, a consolidated report, language-agnostic pseudocode, machine-readable metrics, and the unedited agent transcript. <a href="#designer" class="inline-link">See the full walkthrough above ↑</a>
+        </p>
+        <div class="software-actions">
+          <a href="SmartSolve_Designer_Quick_Start_Tutorial.pdf" class="btn btn-primary" target="_blank" rel="noopener">
+            <span>Quick Start Tutorial</span><span class="btn-arrow">↗</span>
+          </a>
+          <a href="https://github.com/Smart-Solve-AI/SmartSolveDesigner" class="btn btn-ghost btn-pending" target="_blank" rel="noopener" aria-disabled="true">
+            <span>View on GitHub</span>
+          </a>
+        </div>
+        <div class="software-citation">
+          Runs inside Claude Code · Julia 1.10 or newer required<br>
+          PETSc + mpicc optional (C backend) · pandoc + xelatex optional (PDF report)
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRODUCT 2: SmartDiscovery -->
+  <div class="product-block">
+    <div class="product-badge">
+      <span class="product-badge-num">02</span>
+      <span class="product-badge-name">SmartDiscovery</span>
+      <span class="product-badge-kind">PETSc benchmarking &amp; selection</span>
+    </div>
+
+    <div class="software-block">
+      <!-- Visual: workflow micro-diagram -->
+      <div>
+        <svg class="discovery-flow" viewBox="0 0 560 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="discoveryFlowTitle">
+          <title id="discoveryFlowTitle">SmartDiscovery workflow: input matrix benchmarked across PETSc solver–preconditioner combinations, returning the optimal configuration.</title>
+
+          <defs>
+            <marker id="arrowD" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill="#0a0a0a"/>
+            </marker>
+            <marker id="arrowDA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill="#8a0d1f"/>
+            </marker>
+          </defs>
+
+          <!-- INPUT: matrix A -->
+          <g>
+            <rect x="20" y="155" width="120" height="70" rx="2" fill="#f7f8fa" stroke="#0a0a0a" stroke-width="1.5"/>
+            <text x="80" y="183" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="2" fill="#8a0d1f">INPUT</text>
+            <text x="80" y="207" text-anchor="middle" font-family="Fraunces, serif" font-size="17" font-weight="500" fill="#0a0a0a">Matrix A</text>
+          </g>
+
+          <!-- arrow to benchmark -->
+          <line x1="140" y1="190" x2="190" y2="190" stroke="#0a0a0a" stroke-width="1.5" marker-end="url(#arrowD)"/>
+
+          <!-- BENCHMARK GRID: solver x preconditioner combos -->
+          <g>
+            <rect x="190" y="60" width="220" height="260" rx="2" fill="#f7f8fa" stroke="#0a0a0a" stroke-width="1.5"/>
+            <text x="200" y="86" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="2" fill="#8a0d1f">BENCHMARK · PETSc</text>
+            <text x="200" y="108" font-family="Inter Tight, sans-serif" font-size="11" fill="#5c6773">solver × preconditioner</text>
+
+            <!-- grid headers (solvers) -->
+            <text x="240" y="138" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#5c6773">GMRES</text>
+            <text x="290" y="138" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#5c6773">BCGS</text>
+            <text x="340" y="138" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#5c6773">CG</text>
+            <text x="385" y="138" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#5c6773">MINRES</text>
+
+            <!-- row labels (preconditioners) -->
+            <text x="226" y="160" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="9" fill="#5c6773">ILU</text>
+            <text x="226" y="186" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="9" fill="#5c6773">JACOBI</text>
+            <text x="226" y="212" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="9" fill="#5c6773">GAMG</text>
+            <text x="226" y="238" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="9" fill="#5c6773">SOR</text>
+            <text x="226" y="264" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="9" fill="#5c6773">ASM</text>
+            <text x="226" y="290" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="9" fill="#5c6773">HYPRE</text>
+
+            <!-- 6 × 4 grid of benchmark cells -->
+            <g stroke="#c4ccd4" stroke-width="0.8" fill="none">
+              <!-- row 1 -->
+              <rect x="230" y="148" width="22" height="20"/><rect x="280" y="148" width="22" height="20"/><rect x="330" y="148" width="22" height="20"/><rect x="380" y="148" width="22" height="20"/>
+              <!-- row 2 -->
+              <rect x="230" y="174" width="22" height="20"/><rect x="280" y="174" width="22" height="20"/><rect x="330" y="174" width="22" height="20"/><rect x="380" y="174" width="22" height="20"/>
+              <!-- row 3 -->
+              <rect x="230" y="200" width="22" height="20"/><rect x="280" y="200" width="22" height="20"/><rect x="330" y="200" width="22" height="20"/><rect x="380" y="200" width="22" height="20"/>
+              <!-- row 4 -->
+              <rect x="230" y="226" width="22" height="20"/><rect x="280" y="226" width="22" height="20"/><rect x="330" y="226" width="22" height="20"/><rect x="380" y="226" width="22" height="20"/>
+              <!-- row 5 -->
+              <rect x="230" y="252" width="22" height="20"/><rect x="280" y="252" width="22" height="20"/><rect x="330" y="252" width="22" height="20"/><rect x="380" y="252" width="22" height="20"/>
+              <!-- row 6 -->
+              <rect x="230" y="278" width="22" height="20"/><rect x="280" y="278" width="22" height="20"/><rect x="330" y="278" width="22" height="20"/><rect x="380" y="278" width="22" height="20"/>
+            </g>
+
+            <!-- shaded cells to suggest measured performance (subtle blue-gray fills) -->
+            <g fill="#dfe5ec" opacity="0.7">
+              <rect x="230" y="148" width="22" height="20"/>
+              <rect x="280" y="174" width="22" height="20"/>
+              <rect x="330" y="226" width="22" height="20"/>
+              <rect x="380" y="252" width="22" height="20"/>
+              <rect x="230" y="200" width="22" height="20"/>
+              <rect x="330" y="278" width="22" height="20"/>
+              <rect x="280" y="226" width="22" height="20"/>
+              <rect x="380" y="174" width="22" height="20"/>
+            </g>
+            <g fill="#dfe5ec" opacity="0.4">
+              <rect x="280" y="148" width="22" height="20"/>
+              <rect x="330" y="200" width="22" height="20"/>
+              <rect x="230" y="252" width="22" height="20"/>
+              <rect x="380" y="278" width="22" height="20"/>
+            </g>
+
+            <!-- THE WINNER: highlighted cell in crimson -->
+            <rect x="330" y="174" width="22" height="20" fill="#8a0d1f"/>
+          </g>
+
+          <!-- arrow from grid to optimal config -->
+          <line x1="410" y1="190" x2="455" y2="190" stroke="#8a0d1f" stroke-width="1.5" marker-end="url(#arrowDA)"/>
+
+          <!-- OUTPUT: optimal config -->
+          <g>
+            <rect x="455" y="138" width="95" height="104" rx="2" fill="#0a0a0a" stroke="#0a0a0a" stroke-width="1.5"/>
+            <text x="502" y="162" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="2" fill="#b13a4a">OPTIMAL</text>
+            <text x="502" y="186" text-anchor="middle" font-family="Fraunces, serif" font-size="14" font-weight="500" font-style="italic" fill="#eef0f2">CG</text>
+            <text x="502" y="202" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="rgba(238,240,242,0.55)">+</text>
+            <text x="502" y="220" text-anchor="middle" font-family="Fraunces, serif" font-size="14" font-weight="500" font-style="italic" fill="#eef0f2">JACOBI</text>
+          </g>
+
+          <!-- dotted underline annotation -->
+          <line x1="190" y1="345" x2="410" y2="345" stroke="#c4ccd4" stroke-width="1" stroke-dasharray="3 4"/>
+          <text x="300" y="365" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="2" fill="#5c6773">EXHAUSTIVE SEARCH</text>
+        </svg>
+      </div>
+
+      <div class="software-info">
+        <p>
+          A benchmarking and selection tool for sparse linear solves. For a given input matrix, SmartDiscovery exhaustively benchmarks combinations of solvers and preconditioners — measuring accuracy, runtime, and memory usage — and returns the optimal configuration for the system at hand.
+        </p>
+        <p>
+          A PETSc-tailored version is currently under development, using matrices from the <a href="https://chefsi.mit.edu/" target="_blank" rel="noopener" class="inline-link">MIT Center for the Exascale Simulation of Coupled High Enthalpy Fluid-Solid Interactions</a> for development and testing. An early implementation of SmartDiscovery is already available in SmartSolve.jl.
+        </p>
+        <div class="software-actions">
+          <a href="https://github.com/Smart-Solve-AI/SmartDiscovery" class="btn btn-primary" target="_blank" rel="noopener">
+            <span>View on GitHub</span><span class="btn-arrow">↗</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRODUCT 3: NeuralLinearSolve.jl -->
+  <div class="product-block">
+    <div class="product-badge">
+      <span class="product-badge-num">03</span>
+      <span class="product-badge-name">NeuralLinearSolve.jl</span>
+      <span class="product-badge-kind">Neural selection · SciML</span>
+    </div>
+
+    <div class="software-block">
+      <!-- Visual: CNN pipeline diagram -->
+      <div>
+        <svg class="discovery-flow" viewBox="0 0 560 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="nnFlowTitle">
+          <title id="nnFlowTitle">NeuralLinearSolve.jl pipeline: sparse matrix rendered as a 64×64 spy plot, processed through three convolutional blocks and three dense layers, producing a probability distribution over candidate solvers.</title>
+
+          <defs>
+            <marker id="arrowNN" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill="#0a0a0a"/>
+            </marker>
+            <marker id="arrowNNA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill="#8a0d1f"/>
+            </marker>
+          </defs>
+
+          <!-- INPUT: sparse matrix A -->
+          <g>
+            <rect x="14" y="155" width="92" height="70" rx="2" fill="#f7f8fa" stroke="#0a0a0a" stroke-width="1.5"/>
+            <text x="60" y="180" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="2" fill="#8a0d1f">INPUT</text>
+            <text x="60" y="204" text-anchor="middle" font-family="Fraunces, serif" font-size="15" font-weight="500" fill="#0a0a0a">Matrix A</text>
+          </g>
+
+          <line x1="106" y1="190" x2="135" y2="190" stroke="#0a0a0a" stroke-width="1.5" marker-end="url(#arrowNN)"/>
+
+          <!-- SPY PLOT (64x64 binary image) -->
+          <g>
+            <rect x="135" y="155" width="74" height="70" rx="2" fill="#f7f8fa" stroke="#0a0a0a" stroke-width="1.5"/>
+            <text x="172" y="180" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="2" fill="#5c6773">SPY 64×64</text>
+            <!-- mini spy-plot rendering: diagonal + arrow-shaped sparsity -->
+            <g transform="translate(146, 188)" fill="#0a0a0a">
+              <!-- 8x8 grid of dots, with sparse "diagonal + corners" pattern -->
+              <rect x="0" y="0" width="3" height="3"/>
+              <rect x="8" y="0" width="3" height="3"/>
+              <rect x="40" y="0" width="3" height="3"/>
+              <rect x="8" y="4" width="3" height="3"/>
+              <rect x="16" y="4" width="3" height="3"/>
+              <rect x="16" y="8" width="3" height="3"/>
+              <rect x="24" y="8" width="3" height="3"/>
+              <rect x="48" y="8" width="3" height="3"/>
+              <rect x="24" y="12" width="3" height="3"/>
+              <rect x="32" y="12" width="3" height="3"/>
+              <rect x="32" y="16" width="3" height="3"/>
+              <rect x="40" y="16" width="3" height="3"/>
+              <rect x="0" y="20" width="3" height="3"/>
+              <rect x="40" y="20" width="3" height="3"/>
+              <rect x="48" y="20" width="3" height="3"/>
+              <rect x="48" y="24" width="3" height="3"/>
+              <rect x="56" y="24" width="3" height="3"/>
+              <rect x="56" y="28" width="3" height="3"/>
+              <rect x="8" y="28" width="3" height="3"/>
+            </g>
+          </g>
+
+          <line x1="209" y1="190" x2="232" y2="190" stroke="#0a0a0a" stroke-width="1.5" marker-end="url(#arrowNN)"/>
+
+          <!-- CONV BLOCKS (3 stacked feature maps shrinking) -->
+          <g>
+            <text x="270" y="138" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="2" fill="#5c6773">3× CONV</text>
+            <!-- three nested rectangles to suggest feature-map stack -->
+            <rect x="237" y="148" width="66" height="84" fill="#e3e7ec" stroke="#0a0a0a" stroke-width="1"/>
+            <rect x="244" y="156" width="52" height="68" fill="#dfe5ec" stroke="#0a0a0a" stroke-width="1"/>
+            <rect x="252" y="164" width="36" height="52" fill="#c4ccd4" stroke="#0a0a0a" stroke-width="1"/>
+            <text x="270" y="248" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8" fill="#5c6773">1→16→32→64</text>
+          </g>
+
+          <line x1="303" y1="190" x2="326" y2="190" stroke="#0a0a0a" stroke-width="1.5" marker-end="url(#arrowNN)"/>
+
+          <!-- DENSE LAYERS (vertical bars shrinking) -->
+          <g>
+            <text x="370" y="138" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="2" fill="#5c6773">3× DENSE</text>
+            <!-- three vertical bars, decreasing -->
+            <rect x="332" y="148" width="14" height="84" fill="#e3e7ec" stroke="#0a0a0a" stroke-width="1"/>
+            <rect x="354" y="160" width="14" height="60" fill="#dfe5ec" stroke="#0a0a0a" stroke-width="1"/>
+            <rect x="376" y="174" width="14" height="32" fill="#c4ccd4" stroke="#0a0a0a" stroke-width="1"/>
+            <text x="365" y="248" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8" fill="#5c6773">4096→256→64→3</text>
+          </g>
+
+          <line x1="396" y1="190" x2="418" y2="190" stroke="#8a0d1f" stroke-width="1.5" marker-end="url(#arrowNNA)"/>
+
+          <!-- OUTPUT: solver probabilities -->
+          <g>
+            <rect x="418" y="130" width="130" height="120" rx="2" fill="#0a0a0a" stroke="#0a0a0a" stroke-width="1.5"/>
+            <text x="483" y="154" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="2" fill="#b13a4a">PREDICTION</text>
+
+            <!-- three solver bars with probabilities -->
+            <text x="432" y="178" font-family="JetBrains Mono, monospace" font-size="10" fill="#eef0f2">KLU</text>
+            <rect x="468" y="170" width="60" height="10" fill="#8a0d1f"/>
+            <text x="535" y="178" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="9" fill="#eef0f2">0.94</text>
+
+            <text x="432" y="202" font-family="JetBrains Mono, monospace" font-size="10" fill="rgba(238,240,242,0.55)">UMFPACK</text>
+            <rect x="468" y="194" width="4" height="10" fill="rgba(177,58,74,0.45)"/>
+            <text x="535" y="202" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="9" fill="rgba(238,240,242,0.55)">0.04</text>
+
+            <text x="432" y="226" font-family="JetBrains Mono, monospace" font-size="10" fill="rgba(238,240,242,0.55)">Pardiso</text>
+            <rect x="468" y="218" width="2" height="10" fill="rgba(177,58,74,0.45)"/>
+            <text x="535" y="226" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="9" fill="rgba(238,240,242,0.55)">0.02</text>
+          </g>
+
+          <!-- baseline annotation -->
+          <line x1="135" y1="345" x2="396" y2="345" stroke="#c4ccd4" stroke-width="1" stroke-dasharray="3 4"/>
+          <text x="265" y="365" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="2" fill="#5c6773">LEARNED MODEL</text>
+        </svg>
+      </div>
+
+      <div class="software-info">
+        <p>
+          NeuralLinearSolve.jl is a direct implementation of learned selection heuristics for sparse linear systems. Given an input matrix, a convolutional neural network analyzes its spy plot and predicts a probability distribution over candidate solvers, enabling selection of the solver expected to be fastest.
+        </p>
+        <p>
+          The current version is trained on roughly 1,000 matrices from the SuiteSparse Matrix Collection and achieves around 94% top-1 accuracy on a held-out test set. For <a href="https://chefsi.mit.edu/" target="_blank" rel="noopener" class="inline-link">CHEFSI</a> finite-element simulations, the benchmarking infrastructure behind SmartDiscovery for <a href="https://petsc.org/" target="_blank" rel="noopener" class="inline-link">PETSc</a>, and the database of optimal choices it generates, provide the training data needed to build a domain-specific learned heuristic.
+        </p>
+        <p>
+          Released as part of the <a href="https://sciml.ai/" target="_blank" rel="noopener" class="inline-link">SciML</a> ecosystem.
+        </p>
+        <div class="software-actions">
+          <a href="https://github.com/SciML/NeuralLinearSolve.jl" class="btn btn-primary" target="_blank" rel="noopener">
+            <span>View on GitHub</span><span class="btn-arrow">↗</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- NEXT -->
+<nav class="page-next">
+  <div class="page-next-inner">
+    <span class="page-next-label">Next</span>
+    <a class="page-next-link" href="team.html">Team<span class="arr">→</span></a>
+  </div>
+</nav>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <svg class="footer-mark" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <g stroke="#eef0f2" stroke-width="1.6" fill="none">
+            <rect x="4"  y="4"  width="18" height="18"/>
+            <rect x="26" y="4"  width="18" height="18"/>
+            <rect x="48" y="4"  width="18" height="18"/>
+            <rect x="4"  y="26" width="18" height="18"/>
+            <rect x="48" y="26" width="18" height="18"/>
+            <rect x="4"  y="48" width="18" height="18"/>
+            <rect x="26" y="48" width="18" height="18"/>
+            <rect x="48" y="48" width="18" height="18"/>
+          </g>
+          <rect x="26" y="26" width="18" height="18" fill="#b13a4a"/>
+        </svg>
+        <div class="footer-brand">SmartSolve<span class="footer-brand-ai">AI</span></div>
+        <p class="footer-tagline">
+          AI-Guided Algorithm Discovery for Fast Linear Algebra.
+        </p>
+
+        <!--
+          MIT LOCK-UP — required by MIT Brand Guide (brand.mit.edu/logos-marks/logo-lock-ups).
+          Replace src below with the official lock-up downloaded from:
+          https://brand.mit.edu/downloads?downloads_keywords=lockups
+          The three-line lock-up should be used above 50px tall on digital.
+          When over a dark background (this footer), use the WHITE variant.
+        -->
+        <a href="https://www.mit.edu/" class="mit-lockup" target="_blank" rel="noopener" aria-label="Massachusetts Institute of Technology">
+          <img src="assets/logos/mit-lockup-white.svg" alt="Massachusetts Institute of Technology"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"/>
+          <span class="mit-lockup-fallback">Massachusetts Institute of Technology</span>
+        </a>
+      </div>
+      <div class="footer-col">
+        <h2 class="footer-head">Project</h2>
+        <ul>
+          <li><a href="index.html#designer">Designer</a></li>
+          <li><a href="methodology.html">Methodology</a></li>
+          <li><a href="research.html#publications">Publications</a></li>
+          <li><a href="research.html#talks">Talks</a></li>
+          <li><a href="software.html">Software</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2 class="footer-head">Contact</h2>
+        <ul>
+          <li><a href="mailto:smartsolveai@mit.edu">smartsolveai@mit.edu</a></li>
+          <li class="footer-addr">77 Massachusetts Ave.<br>Cambridge, MA 02139</li>
+        </ul>
+        <h2 class="footer-head" style="margin-top:28px">Resources</h2>
+        <ul>
+          <li><a href="https://github.com/Smart-Solve-AI" target="_blank" rel="noopener">GitHub ↗</a></li>
+          <li><a href="https://julia.mit.edu/" target="_blank" rel="noopener">Julia Lab ↗</a></li>
+          <li><a href="https://accessibility.mit.edu/captioning/mit-nad-agreement/" target="_blank" rel="noopener">Accessibility</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2024–2026 · Massachusetts Institute of Technology</div>
+      <div>Cambridge, MA · 02139</div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/site.js?v=90e2dcd7-2072f599" defer></script>
+
+</body>
+</html>

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-X3NBB3QCY7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-X3NBB3QCY7');
+</script>
+<title>Methodology — SmartSolveAI | MIT</title>
+<meta name="description" content="How SmartSolveAI works: benchmarking the linear-algebra design space, then using the best-performing choices to generate selection heuristics and specialized solver variants." />
+<link rel="canonical" href="https://smartsolveai.mit.edu/methodology.html" />
+<!-- Link previews. Plain meta tags — no account or service involved.
+     Card regenerated from assets/social/og-card.src.html:
+     google-chrome --headless --window-size=1200,630 --screenshot=assets/social/og-card.png <url> -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="SmartSolveAI" />
+<meta property="og:url" content="https://smartsolveai.mit.edu/methodology.html" />
+<meta property="og:title" content="Methodology — SmartSolveAI" />
+<meta property="og:description" content="How SmartSolveAI works: benchmarking the linear-algebra design space, then using the best-performing choices to generate selection heuristics and specialized solver variants." />
+<meta property="og:image" content="https://smartsolveai.mit.edu/assets/social/og-card.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="SmartSolveAI — AI-Guided Algorithm Discovery for Fast Linear Algebra. MIT CSAIL." />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'><g stroke='%230a0a0a' stroke-width='3' fill='none'><rect x='4' y='4' width='18' height='18'/><rect x='26' y='4' width='18' height='18'/><rect x='48' y='4' width='18' height='18'/><rect x='4' y='26' width='18' height='18'/><rect x='48' y='26' width='18' height='18'/><rect x='4' y='48' width='18' height='18'/><rect x='26' y='48' width='18' height='18'/><rect x='48' y='48' width='18' height='18'/></g><rect x='26' y='26' width='18' height='18' fill='%238a0d1f'/></svg>" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css?v=90e2dcd7-2072f599">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- TOP BAR -->
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="brand" aria-label="SmartSolveAI home">
+      <svg class="brand-svg" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <g stroke="#0a0a0a" stroke-width="1.6" fill="none">
+          <rect x="4"  y="4"  width="18" height="18"/>
+          <rect x="26" y="4"  width="18" height="18"/>
+          <rect x="48" y="4"  width="18" height="18"/>
+          <rect x="4"  y="26" width="18" height="18"/>
+          <rect x="48" y="26" width="18" height="18"/>
+          <rect x="4"  y="48" width="18" height="18"/>
+          <rect x="26" y="48" width="18" height="18"/>
+          <rect x="48" y="48" width="18" height="18"/>
+        </g>
+        <rect x="26" y="26" width="18" height="18" fill="#8a0d1f"/>
+      </svg>
+      <span class="brand-mark">SmartSolve<span class="brand-mark-ai">AI</span></span>
+      <span class="brand-tag">CSAIL · MIT</span>
+    </a>
+    <nav class="topnav">
+      <a href="index.html">Home</a>
+      <a href="methodology.html" class="is-active">Methodology</a>
+      <a href="research.html">Research</a>
+      <a href="software.html">Software</a>
+      <a href="team.html">Team</a>
+      <a href="https://github.com/Smart-Solve-AI">GitHub ↗</a>
+    </nav>
+  </div>
+</header>
+
+
+
+<main id="main">
+<!-- PAGE HEAD -->
+<header class="page-head">
+  <div class="page-head-inner">
+    <div class="page-eyebrow">Methodology</div>
+    <h1 class="page-title">From <em>benchmark</em> to <em>algorithms</em>.</h1>
+    <p class="page-lede">SmartSolveAI's methodology begins by benchmarking choices across the linear-algebra design space — including algorithm classes, mixed-precision strategies, sparsity structures, memory layouts, and hardware backends. It then uses the best-performing choices — evaluated by metrics such as accuracy, runtime, and memory usage — as input to an AI-assisted process that generates (1) <strong>selection heuristics</strong> to dispatch the optimal configuration for a given input, such as a specific preconditioner–solver pair, and (2) <strong>specialized variants of state-of-the-art solvers</strong> by leveraging information such as the input matrix's pattern and the target hardware.</p>
+  </div>
+</header>
+<div class="page-rule"></div>
+
+<!-- METHODOLOGY -->
+<section class="content" id="methodology">
+
+  <div class="pipeline">
+    <svg viewBox="0 0 1200 520" xmlns="http://www.w3.org/2000/svg" aria-labelledby="pipelineTitle" role="img">
+      <title id="pipelineTitle">SmartSolveAI methodology pipeline diagram</title>
+
+      <defs>
+        <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="#0a0a0a"/>
+        </marker>
+        <marker id="arrow-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="#8a0d1f"/>
+        </marker>
+      </defs>
+
+      <!-- INPUT -->
+      <g class="node node-input">
+        <rect x="20" y="220" width="160" height="80" rx="2" fill="#f7f8fa" stroke="#0a0a0a" stroke-width="1.5"/>
+        <text x="100" y="252" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="2" fill="#8a0d1f">INPUT</text>
+        <text x="100" y="278" text-anchor="middle" font-family="Fraunces, serif" font-size="17" font-weight="500" fill="#0a0a0a">Matrix A</text>
+      </g>
+
+      <!-- Arrow to stage 01 -->
+      <line x1="180" y1="260" x2="240" y2="260" stroke="#0a0a0a" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+      <!-- STAGE 01: BENCHMARK -->
+      <g class="node">
+        <rect x="240" y="200" width="240" height="120" rx="2" fill="#f7f8fa" stroke="#0a0a0a" stroke-width="1.5"/>
+        <text x="260" y="226" font-family="JetBrains Mono, monospace" font-size="11" letter-spacing="2" fill="#8a0d1f">01 · BENCHMARK</text>
+        <text x="260" y="256" font-family="Fraunces, serif" font-size="18" font-weight="500" fill="#0a0a0a">Sampling the</text>
+        <text x="260" y="278" font-family="Fraunces, serif" font-size="18" font-weight="500" font-style="italic" fill="#0a0a0a">design space</text>
+        <text x="260" y="302" font-family="Inter Tight, sans-serif" font-size="12" fill="#5c6773">algorithms · precision · sparsity · HW</text>
+      </g>
+
+      <!-- Arrow to stage 02 -->
+      <line x1="480" y1="260" x2="540" y2="260" stroke="#0a0a0a" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+      <!-- STAGE 02: DATABASE / BEST-PERFORMING -->
+      <g class="node">
+        <rect x="540" y="200" width="240" height="120" rx="2" fill="#f7f8fa" stroke="#0a0a0a" stroke-width="1.5"/>
+        <text x="560" y="226" font-family="JetBrains Mono, monospace" font-size="11" letter-spacing="2" fill="#8a0d1f">02 · DATABASE</text>
+        <text x="560" y="256" font-family="Fraunces, serif" font-size="18" font-weight="500" fill="#0a0a0a">Best-performing</text>
+        <text x="560" y="278" font-family="Fraunces, serif" font-size="18" font-weight="500" font-style="italic" fill="#0a0a0a">choices</text>
+        <text x="560" y="302" font-family="Inter Tight, sans-serif" font-size="12" fill="#5c6773">accuracy · runtime · memory</text>
+      </g>
+
+      <!-- FORK -->
+      <!-- top branch line -->
+      <path d="M 780 260 L 820 260 L 820 130 L 880 130" fill="none" stroke="#8a0d1f" stroke-width="1.5" marker-end="url(#arrow-accent)"/>
+      <!-- bottom branch line -->
+      <path d="M 780 260 L 820 260 L 820 390 L 880 390" fill="none" stroke="#8a0d1f" stroke-width="1.5" marker-end="url(#arrow-accent)"/>
+
+      <!-- fork label -->
+      <text x="820" y="248" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="2" fill="#8a0d1f">FORK</text>
+
+      <!-- BRANCH A: SELECTION HEURISTICS -->
+      <g class="node node-out">
+        <rect x="880" y="70" width="300" height="120" rx="2" fill="#0a0a0a" stroke="#0a0a0a" stroke-width="1.5"/>
+        <text x="900" y="96" font-family="JetBrains Mono, monospace" font-size="11" letter-spacing="2" fill="#b13a4a">03A · AI-ASSISTED</text>
+        <text x="900" y="126" font-family="Fraunces, serif" font-size="20" font-weight="500" fill="#eef0f2">Selection</text>
+        <text x="900" y="150" font-family="Fraunces, serif" font-size="20" font-weight="500" font-style="italic" fill="#eef0f2">heuristics</text>
+        <text x="900" y="174" font-family="Inter Tight, sans-serif" font-size="12" fill="rgba(238,240,242,0.65)">e.g. optimal preconditioner–solver pair</text>
+      </g>
+
+      <!-- BRANCH B: SPECIALIZED SOLVERS -->
+      <g class="node node-out">
+        <rect x="880" y="330" width="300" height="120" rx="2" fill="#0a0a0a" stroke="#0a0a0a" stroke-width="1.5"/>
+        <text x="900" y="356" font-family="JetBrains Mono, monospace" font-size="11" letter-spacing="2" fill="#b13a4a">03B · AI-ASSISTED</text>
+        <text x="900" y="386" font-family="Fraunces, serif" font-size="20" font-weight="500" fill="#eef0f2">Specialized</text>
+        <text x="900" y="410" font-family="Fraunces, serif" font-size="20" font-weight="500" font-style="italic" fill="#eef0f2">solvers</text>
+        <text x="900" y="434" font-family="Inter Tight, sans-serif" font-size="12" fill="rgba(238,240,242,0.65)">leveraging matrix pattern, hardware, etc.</text>
+      </g>
+
+      <!-- shared-stage dotted underline -->
+      <line x1="240" y1="345" x2="780" y2="345" stroke="#c4ccd4" stroke-width="1" stroke-dasharray="3 4"/>
+      <text x="510" y="370" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="2" fill="#5c6773">SMART DISCOVERY</text>
+
+      <!-- divergence label -->
+      <line x1="880" y1="50" x2="1180" y2="50" stroke="#c4ccd4" stroke-width="1" stroke-dasharray="3 4"/>
+      <text x="1030" y="42" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="2" fill="#5c6773">NEW LINEAR ALGEBRA</text>
+    </svg>
+  </div>
+</section>
+
+
+<!-- NEXT -->
+<nav class="page-next">
+  <div class="page-next-inner">
+    <span class="page-next-label">Next</span>
+    <a class="page-next-link" href="research.html">Research<span class="arr">→</span></a>
+  </div>
+</nav>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <svg class="footer-mark" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <g stroke="#eef0f2" stroke-width="1.6" fill="none">
+            <rect x="4"  y="4"  width="18" height="18"/>
+            <rect x="26" y="4"  width="18" height="18"/>
+            <rect x="48" y="4"  width="18" height="18"/>
+            <rect x="4"  y="26" width="18" height="18"/>
+            <rect x="48" y="26" width="18" height="18"/>
+            <rect x="4"  y="48" width="18" height="18"/>
+            <rect x="26" y="48" width="18" height="18"/>
+            <rect x="48" y="48" width="18" height="18"/>
+          </g>
+          <rect x="26" y="26" width="18" height="18" fill="#b13a4a"/>
+        </svg>
+        <div class="footer-brand">SmartSolve<span class="footer-brand-ai">AI</span></div>
+        <p class="footer-tagline">
+          AI-Guided Algorithm Discovery for Fast Linear Algebra.
+        </p>
+
+        <!--
+          MIT LOCK-UP — required by MIT Brand Guide (brand.mit.edu/logos-marks/logo-lock-ups).
+          Replace src below with the official lock-up downloaded from:
+          https://brand.mit.edu/downloads?downloads_keywords=lockups
+          The three-line lock-up should be used above 50px tall on digital.
+          When over a dark background (this footer), use the WHITE variant.
+        -->
+        <a href="https://www.mit.edu/" class="mit-lockup" target="_blank" rel="noopener" aria-label="Massachusetts Institute of Technology">
+          <img src="assets/logos/mit-lockup-white.svg" alt="Massachusetts Institute of Technology"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"/>
+          <span class="mit-lockup-fallback">Massachusetts Institute of Technology</span>
+        </a>
+      </div>
+      <div class="footer-col">
+        <h2 class="footer-head">Project</h2>
+        <ul>
+          <li><a href="index.html#designer">Designer</a></li>
+          <li><a href="methodology.html">Methodology</a></li>
+          <li><a href="research.html#publications">Publications</a></li>
+          <li><a href="research.html#talks">Talks</a></li>
+          <li><a href="software.html">Software</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2 class="footer-head">Contact</h2>
+        <ul>
+          <li><a href="mailto:smartsolveai@mit.edu">smartsolveai@mit.edu</a></li>
+          <li class="footer-addr">77 Massachusetts Ave.<br>Cambridge, MA 02139</li>
+        </ul>
+        <h2 class="footer-head" style="margin-top:28px">Resources</h2>
+        <ul>
+          <li><a href="https://github.com/Smart-Solve-AI" target="_blank" rel="noopener">GitHub ↗</a></li>
+          <li><a href="https://julia.mit.edu/" target="_blank" rel="noopener">Julia Lab ↗</a></li>
+          <li><a href="https://accessibility.mit.edu/captioning/mit-nad-agreement/" target="_blank" rel="noopener">Accessibility</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2024–2026 · Massachusetts Institute of Technology</div>
+      <div>Cambridge, MA · 02139</div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/site.js?v=90e2dcd7-2072f599" defer></script>
+
+</body>
+</html>
