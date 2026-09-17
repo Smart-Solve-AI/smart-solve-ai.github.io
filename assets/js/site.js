@@ -2,6 +2,20 @@
    Every block guards on the elements it needs, so one file serves all pages. */
 // BibTeX
   const bibtex = {
+    carrica2026nextlai: `@inproceedings{carrica2026nextlai,
+  title     = {{NextL(A)I: Agentic AI Augmentation for the Next Generation of Recursive Mixed-Precision Linear Solvers}},
+  author    = {Carrica, Vicki and Alomairy, Rabab and Valero-Lara, Pedro and Edelman, Alan},
+  booktitle = {ACM/IEEE Supercomputing Conference (SC) Workshops},
+  year      = {2026}
+}`,
+    tome2026qromega: `@misc{tome2026qromega,
+  title   = {{QR-Omega: Communication Avoiding 2.5D Householder QR}},
+  author  = {Tom{\\'{e}}, Felipe de Alc{\\^{a}}ntara},
+  school  = {ACM Student Research Competition (Graduate), SC26, Chicago, Illinois},
+  year    = {2026},
+  month   = nov,
+  note    = {Advisors: Rabab Alomairy, Alan Edelman, Hermes Senger}
+}`,
     pados2026learning: `@inproceedings{pados2026learning,
   title     = {Learning to Select Sparse Linear Solvers with Convolutional Neural Networks},
   author    = {Pados, Artemis and Edelman, Alan and Lujan, Emmanuel and Pickard, Daniel and Tom{\\'{e}}, Felipe and Rackauckas, Christopher},
@@ -47,13 +61,6 @@
   doi       = {10.5281/zenodo.15784217},
   url       = {https://doi.org/10.5281/zenodo.15784217},
   note      = {Deprecated; superseded by SmartSolve Designer. Concept DOI: 10.5281/zenodo.15784216}
-}`,
-    alomairy2024dynamic: `@inproceedings{alomairy2024dynamic,
-  title     = {Dynamic Task Scheduling with Data Dependency Awareness Using Julia},
-  author    = {Alomairy, Rabab and Tome, Felipe and Samaroo, Julian and Edelman, Alan},
-  booktitle = {IEEE High Performance Extreme Computing Conference (HPEC)},
-  year      = {2024},
-  doi       = {10.1109/HPEC62836.2024.10938467}
 }`
   };
 

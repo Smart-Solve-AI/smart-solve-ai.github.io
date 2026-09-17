@@ -1400,6 +1400,61 @@
     /* Keep a gentle fade but drop the movement for reduced-motion users */
     .reveal { transform: none; transition: opacity 0.8s ease; }
   }
+
+  /* ------------- SIBLING PROJECTS ------------- */
+  .siblings { margin-top: 96px; }
+  .siblings-lede {
+    font-family: var(--serif);
+    font-size: 17px;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    max-width: 68ch;
+    margin-bottom: 34px;
+  }
+  .sibling-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+  .sibling-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    background: var(--paper-bright);
+    border: 1px solid var(--rule);
+    padding: 26px 28px 24px;
+    transition: border-color 0.25s, background 0.25s;
+  }
+  .sibling-card:hover { border-color: var(--ink); background: #fff; }
+  .sibling-name {
+    font-family: var(--serif);
+    font-size: 23px;
+    font-weight: 500;
+    letter-spacing: -0.015em;
+  }
+  .sibling-card:hover .sibling-name { color: var(--accent); }
+  .sibling-desc {
+    font-family: var(--sans);
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    margin-top: 12px;
+  }
+  .sibling-repo {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 18px;
+    font-family: var(--mono);
+    font-size: 11.5px;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+  }
+  .sibling-card:hover .sibling-repo { color: var(--accent); }
+  @media (max-width: 960px) {
+    .siblings { margin-top: 64px; }
+    .sibling-grid { grid-template-columns: 1fr; gap: 20px; }
+  }
   /* ============================================================
      MULTIPAGE — styles the split site needs on top of the section styles
      ============================================================ */
@@ -1661,3 +1716,11 @@
     text-decoration: none;
   }
   .skip-link:focus { left: 12px; top: 12px; }
+
+  /* "See more of our software" sits at the far end of the Designer action row,
+     reusing the .latest-more link style. */
+  .designer-actions { align-items: center; }
+  .designer-more { margin-left: auto; margin-top: 0; }
+  @media (max-width: 960px) {
+    .designer-more { margin-left: 0; margin-top: 6px; }
+  }
