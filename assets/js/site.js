@@ -89,6 +89,46 @@
     URL.revokeObjectURL(url);
   }
 
+  // Mobile nav: below 960px the top nav collapses into the hamburger panel.
+  (function () {
+    const bar    = document.querySelector('.topbar');
+    const btn    = document.getElementById('nav-toggle');
+    const nav    = document.getElementById('topnav');
+    if (!bar || !btn || !nav) return;
+
+    const wide = window.matchMedia('(min-width: 961px)');
+
+    function setOpen(open) {
+      bar.classList.toggle('nav-open', open);
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      btn.setAttribute('aria-label', open ? 'Close menu' : 'Menu');
+    }
+
+    btn.addEventListener('click', () => {
+      setOpen(!bar.classList.contains('nav-open'));
+    });
+
+    // A same-page anchor doesn't reload, so close the panel by hand.
+    nav.addEventListener('click', (e) => {
+      if (e.target.closest('a')) setOpen(false);
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && bar.classList.contains('nav-open')) {
+        setOpen(false);
+        btn.focus();
+      }
+    });
+
+    document.addEventListener('click', (e) => {
+      if (bar.classList.contains('nav-open') && !bar.contains(e.target)) setOpen(false);
+    });
+
+    // Leaving mobile widths hands the nav back to the bar; drop the open state
+    // so it isn't still set when the viewport narrows again.
+    wide.addEventListener('change', (e) => { if (e.matches) setOpen(false); });
+  })();
+
   // Subtle scroll-reveal
   const io = new IntersectionObserver((entries) => {
     entries.forEach(e => {
